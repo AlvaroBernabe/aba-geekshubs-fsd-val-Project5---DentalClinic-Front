@@ -19,5 +19,5 @@ export const Router = () => {
         <Route path='/about' element={<About/>} />
     </Routes>
     </>
-  )
+    )
 }
