@@ -14,4 +14,7 @@ body {
     justify-content: center;
     background-color: pink;
     width: 100vw;
+    background-image: url(../assets/Logo.png);
+    background-position: center;
+    background-size: 8em;
 }
