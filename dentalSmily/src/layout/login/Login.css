@@ -1,0 +1,17 @@
+.botones {
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+.botonRestaurar {
+    font-size: xx-small;
+    background-color: pink;
+    
+}
+
+.botonLogin {
+    font-size: larger;
+}

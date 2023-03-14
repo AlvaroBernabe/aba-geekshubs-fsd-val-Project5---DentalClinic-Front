@@ -39,9 +39,9 @@ export function Profile() {
             </Form.Select>
             <br />
             <div className='botonModificar'>
-            <Button variant="primary" type="submit">
-                Modificar Datos
-            </Button>
+                <Button variant="primary" type="submit">
+                    Modificar Datos
+                </Button>
             </div>
         </Form>
         </div>
