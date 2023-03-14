@@ -1,0 +1,20 @@
+.botones {
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+}
+
+.botonRestaurar {
+    font-size: xx-small;
+    background-color: pink;
+}
+
+.botonLogin {
+    font-size: larger;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(0, 255, 72);
+}

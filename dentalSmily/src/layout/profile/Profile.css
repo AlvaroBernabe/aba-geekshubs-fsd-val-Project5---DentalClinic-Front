@@ -1,0 +1,11 @@
+
+.botonModificar{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+Form {
+    color: darkblue;
+    font-size: large;
+}
