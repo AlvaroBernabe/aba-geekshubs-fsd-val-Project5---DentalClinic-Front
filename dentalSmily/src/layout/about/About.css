@@ -1,0 +1,18 @@
+.maps {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    color: rgb(212, 0, 255);
+    background-color: aqua;
+    
+}
+b {
+    color: purple;
+}
+
+.imagen1 {
+    height: 20px;
+    width: 20px;
+}
