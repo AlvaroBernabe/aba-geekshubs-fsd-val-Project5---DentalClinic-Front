@@ -3,7 +3,7 @@ import NavBar from '../../components/NavBar';
 import './About.css';
 import foto1 from '../../assets/Aboutus1.png';
 import foto2 from '../../assets/Aboutus2.png';
-// import foto3 from '../../assets/Aboutus3.png';
+import foto3 from '../../assets/Aboutus3.png';
 
 
 export const About = () => {
@@ -22,6 +22,7 @@ export const About = () => {
                 healtcare professionals.
             </p>
             <p>- We take the time to listen to any concerns about your dental care and treatments goals, so you can feel at ease</p>
+            <img src={foto3} alt="logo" style={{ width: "20em", height: "15em",}}/>
             <p>- Our primary aim is to help you achieve an exceptional standard of oral health via preventivev education. Our dental and healthcare
                 professional will treat you with genuine care and underrstanding. Any treatment we recommend will be in the best interest of your oral health.
             </p>
