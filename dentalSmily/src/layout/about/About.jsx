@@ -2,7 +2,7 @@ import React from 'react';
 import NavBar from '../../components/NavBar';
 import './About.css';
 import foto1 from '../../assets/Aboutus1.png';
-// import foto2 from '../../assets/Aboutus2.png';
+import foto2 from '../../assets/Aboutus2.png';
 // import foto3 from '../../assets/Aboutus3.png';
 
 
@@ -29,10 +29,25 @@ export const About = () => {
                 check-ups, treatments and cleanings. We believe in providing the ultimate customer experience and employ a team of highly trained dentisst across 
                 a variety of disciplines.
             </p>
-            <div className='imagen1'>
-            <img src={foto1} alt="logo" style={{ width: "20em", height: "15em",}}/>
-            </div>
-            
+                <img src={foto1} alt="logo" style={{ width: "20em", height: "15em",}}/>
+
+            <p>Ours Services:</p>
+            <ul>
+                <li>Private and NHS dental care.</li>
+                <li>Routine preventative dentistry for children and adults.</li>
+                <li>Cosmetic dentistry, such as veneews, teeth whitening, and white fillings.</li>
+                <li>Orthodontic treatment using Invisalign to straighten teeth.</li>
+                <li>Dental implants for the replacement of missing teeth.</li>
+                <li>Inlays and onlays for severe cavities.</li>
+                <li>Toohh extraction.</li>
+                <li>Emergency treatments on the same day.</li>
+            </ul>
+            <img src={foto2} alt="logo" style={{ width: "20em", height: "15em",}}/>
+
+
+
+
+
 
         </>
     )
