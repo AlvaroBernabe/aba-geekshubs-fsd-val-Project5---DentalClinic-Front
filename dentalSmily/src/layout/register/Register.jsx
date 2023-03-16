@@ -1,7 +1,9 @@
 import React, { useState, useEffect }  from 'react';
 import { Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
+import { InputText } from '../../components/InputText/InputText';
 import NavBar from '../../components/NavBar';
+import { validate } from '../../helpers/useful';
 import './Register.css';
 
 export function Register() {
@@ -11,7 +13,7 @@ export function Register() {
         email: "",
         password: "",
       });
-      
+
     const [valiUser, setValiUser] = useState({
         fullnameVali: false,
         emailVali: false,
@@ -28,7 +30,7 @@ export function Register() {
 
     const inputHandler = (e) => {
         setCredenciales((prevState) => ({
-            ...prevState, [e.target.name]: e.target
+            ...prevState, [e.target.name]: e.target.value
         }));
     };
 
@@ -56,7 +58,7 @@ export function Register() {
         let error = "";
         const checked = validate(
            e.target.name,
-            // e.target.value,
+            e.target.value,
             e.target.required
         );
         error = checked.message;

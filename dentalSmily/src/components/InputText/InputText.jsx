@@ -2,15 +2,18 @@ import React from 'react';
 import './InputText.css';
 
 export const InputText = ({
+    className,
     type,
     name,
     placeholder,
+    required,
     changeFunction,
-    validateFunction
+    blurFunction
 }) => {
     return (
         <>
-        <input className='inputDesign' type={type} name={name} placeholder={placeholder} onChange={changeFunction} onBlur={validateFunction} />
+        <input className={className} type={type} name={name} placeholder={placeholder} required={required}
+        onChange={(e)=> changeFunction(e)} onBlur={(e)=>blurFunction(e)}   />
         </>
     )
 }
