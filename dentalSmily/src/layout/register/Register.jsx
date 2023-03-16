@@ -1,9 +1,11 @@
 import React, { useState, useEffect }  from 'react';
-import { Form } from 'react-bootstrap';
+import { Container, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { InputText } from '../../components/InputText/InputText';
 import NavBar from '../../components/NavBar';
 import { validate } from '../../helpers/useful';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import './Register.css';
 
 export function Register() {
@@ -84,34 +86,40 @@ export function Register() {
         <hr />
         <div style={{ display: 'block', width: 700, padding: 30 }}>
             <h4>Crea tu usuario</h4>
-            <Form>
-                <Form.Group>
-                    <Form.Label>Enter your Name and Surname:</Form.Label>
-                    <InputText className={ credencialesError.fullnameError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
-                    type={"text"} name={"fullname"} placeholder={"Enter your complete name"}  required={true} 
-                    changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-                </Form.Group>
-                <div>{credencialesError.fullnameError}</div>
-                <Form.Group>
-                    <Form.Label>Enter your email address:</Form.Label>
-                    <InputText className={ credencialesError.emailError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
-                    type={"email"} name={"email"} placeholder={"Enter your email"} required={true}
-                    changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-                </Form.Group>
-                <div>{credencialesError.emailError}</div>
-                <Form.Group>
-                    <Form.Label>Enter your password:</Form.Label>
-                    <InputText className={ credencialesError.passwordError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
-                    type={"password"} name={"password"} placeholder={"Enter your password"} required={true} 
-                    changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-                </Form.Group>
-                <div>{credencialesError.passwordError}</div>
-                <br />
-                <Button className={registerAct ? "registerSendDeac registerSendAct" : "registerSendDeac"} variant="primary" 
-                onClick={registerAct ? () => { fakeRegister(); }: () => {} }>
-                    Register User
-                </Button>
-            </Form>
+            <Container>
+                <Row className="registerForm">
+                    <Col lg={6}>
+                        <Form>
+                            <Form.Group>
+                                <Form.Label>Enter your Name and Surname:</Form.Label>
+                                <InputText className={ credencialesError.fullnameError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
+                                type={"text"} name={"fullname"} placeholder={"Enter your complete name"}  required={true} 
+                                changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
+                            </Form.Group>
+                            <div>{credencialesError.fullnameError}</div>
+                            <Form.Group>
+                                <Form.Label>Enter your email address:</Form.Label>
+                                <InputText className={ credencialesError.emailError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
+                                type={"email"} name={"email"} placeholder={"Enter your email"} required={true}
+                                changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
+                            </Form.Group>
+                            <div>{credencialesError.emailError}</div>
+                            <Form.Group>
+                                <Form.Label>Enter your password:</Form.Label>
+                                <InputText className={ credencialesError.passwordError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
+                                type={"password"} name={"password"} placeholder={"Enter your password"} required={true} 
+                                changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
+                            </Form.Group>
+                            <div>{credencialesError.passwordError}</div>
+                            <br />
+                            <Button className={registerAct ? "registerSendDeac registerSendAct" : "registerSendDeac"} variant="primary" 
+                            onClick={registerAct ? () => { fakeRegister(); }: () => {} }>
+                                Register User
+                            </Button>
+                        </Form>
+                    </Col>
+                </Row>
+            </Container>
         </div>
         </>
     );

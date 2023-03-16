@@ -5,7 +5,7 @@ import { Home } from './layout/home/Home';
 import { Login } from './layout/login/Login';
 import { Profile } from './layout/profile/Profile';
 import { Register } from './layout/register/Register';
-import { Services } from './layout/services/Services';
+import { Treatment } from './layout/treatment/Treatment';
 
 
 export const Router = () => {
@@ -14,7 +14,7 @@ export const Router = () => {
     <hr />
     <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/services' element={<Services/>} />
+        <Route path='/treatment' element={<Treatment/>} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/about' element={<About/>} />

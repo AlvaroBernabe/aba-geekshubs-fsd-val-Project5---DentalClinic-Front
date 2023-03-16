@@ -1,13 +1,13 @@
 import React from 'react';
 import NavBar from '../../components/NavBar';
-import './Services.css';
+import './Treatment.css';
 
-export const Services = () => {
+export const Treatment = () => {
   return (
     <>
         <NavBar />
         <hr />
-        <div>You are in Services </div>
+        <div>You are in Treatment </div>
     </>
   )
 }

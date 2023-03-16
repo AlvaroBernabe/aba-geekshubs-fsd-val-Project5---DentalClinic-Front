@@ -14,7 +14,7 @@ function NavBar() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
-            <Nav.Link as={Link} to="/services">Services</Nav.Link>
+            <Nav.Link as={Link} to="/treatment">Treatment</Nav.Link>
             <Navbar.Brand  className='Logo'>Welcome To dentalSmily</Navbar.Brand>
             <Nav.Link as={Link} to="/profile">Profile</Nav.Link>
             <NavDropdown title="User" id="basic-nav-dropdown">
