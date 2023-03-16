@@ -109,7 +109,7 @@ export function Register() {
                 <br />
                 <Button className={registerAct ? "registerSendDeac registerSendAct" : "registerSendDeac"} variant="primary" 
                 onClick={registerAct ? () => { fakeRegister(); }: () => {} }>
-                    Registrar usuario
+                    Register User
                 </Button>
             </Form>
         </div>
