@@ -6,64 +6,108 @@ import './Register.css';
 
 export function Register() {
 
-    // const [userData, setUserData] = useState({
-    //     fullName: "",
-    //     email: "",
-    //     password: "",
-    // });
+    const [credenciales, setCredenciales] = useState({
+        fullname: "",
+        email: "",
+        password: "",
+      });
+      
+    const [valiUser, setValiUser] = useState({
+        fullnameVali: false,
+        emailVali: false,
+        passwordVali: false,
+    });
 
-    // const inputHandler = (e) => {
-    //     setUserData((prevState) => ({
-    //         ...prevState,
-    //         [e.target.name]: e.target.value,
-    //     }));
-    // };
+    const [credencialesError, setCredencialesError] = useState({
+        fullnameError: "",
+        emailError: "",
+        passwordError: "",
+    });
 
-    // const inputValidate = (e) => {};
-    let user = {
-        fullname: '',
-        email: '',
-        password: ''
+    const [registerAct, setRegisterAct] = useState (false);
+
+    const inputHandler = (e) => {
+        setCredenciales((prevState) => ({
+            ...prevState, [e.target.name]: e.target
+        }));
     };
-    const [valor, setValor] = useState(user);
-    const {fullname, email, password} = valor;
-    const newValue = ({target}) => {
-        console.log(target);
-        const {name, value} = target;
-        setValor({...valor,[name]:value});
-    }
+
+    useEffect(() =>{
+        console.log(credenciales);
+        for (let error in credencialesError) {
+            if (credencialesError[error] !== ""){
+                setRegisterAct(false);
+                return;
+            }
+        } for (let vacio in credenciales){
+            if(credenciales[vacio] === ""){
+                setRegisterAct(false);
+                return;
+            }
+        } for (let validated in valiUser){
+            if(valiUser[validated] === false){
+                setRegisterAct(false);
+                return;
+            }
+        } setRegisterAct(true)
+    })
+
+    const checkError = (e) => {
+        let error = "";
+        const checked = validate(
+           e.target.name,
+            // e.target.value,
+            e.target.required
+        );
+        error = checked.message;
+
+        setValiUser((prevState) => ({
+            ...prevState, [e.target.name + "Vali"]: checked.validated,
+        }));
+
+        setCredencialesError((prevState) => ({
+            ...prevState, [e.target.name + "Error"]: error,
+        }));
+    };
+
+
+
+    const fakeRegister = () => {
+        console.log("victoria");
+    };
 
     return (
         <>
         <NavBar />
         <hr />
         <div style={{ display: 'block', width: 700, padding: 30 }}>
-            <h4>React-Bootstrap Form Component</h4>
+            <h4>Crea tu usuario</h4>
             <Form>
                 <Form.Group>
                     <Form.Label>Enter your Name and Surname:</Form.Label>
-                    <Form.Control type="text" name="fullname" placeholder="Enter your name and surname" value={fullname} onChange={newValue} />
-                    {/* // changeFunction={(e) => inputHandler(e)} validateFunction={(e) => inputValidate(e)} /> */}
-                        {/* <InputText type="text" name="fullname" placeholder="Enter your name and surname" changeFunction={(e) => inputHandler(e)}
-                        validateFunction={(e) => inputValidate(e)} /> */}
+                    <InputText className={ credencialesError.fullnameError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
+                    type={"text"} name={"fullname"} placeholder={"Enter your complete name"}  required={true} 
+                    changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
                 </Form.Group>
+                <div>{credencialesError.fullnameError}</div>
                 <Form.Group>
                     <Form.Label>Enter your email address:</Form.Label>
-                    <Form.Control type="email" name="email" placeholder="Enter your your email address"  value={email} onChange={newValue} />
-                    {/* // changeFunction={(e) => inputHandler(e)} validateFunction={(e) => inputValidate(e)} /> */}
-                     {/* <InputText type="email" name="email" placeholder="Enter your your email address" changeFunction={(e) => inputHandler(e)}
-                    validateFunction={(e) => inputValidate(e)} /> */}
+                    <InputText className={ credencialesError.emailError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
+                    type={"email"} name={"email"} placeholder={"Enter your email"} required={true}
+                    changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
                 </Form.Group>
+                <div>{credencialesError.emailError}</div>
                 <Form.Group>
                     <Form.Label>Enter your password:</Form.Label>
-                    <Form.Control type="password" name="password" placeholder="Enter your password"  value={password} onChange={newValue} />
-                    {/* // changeFunction={(e) => inputHandler(e)} validateFunction={(e) => inputValidate(e)} /> */}
-                    {/* <InputText type="password" name="password" placeholder="Enter your password" changeFunction={(e) => inputHandler(e)}
-                    validateFunction={(e) => inputValidate(e)} /> */}
+                    <InputText className={ credencialesError.passwordError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
+                    type={"password"} name={"password"} placeholder={"Enter your password"} required={true} 
+                    changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
                 </Form.Group>
+                <div>{credencialesError.passwordError}</div>
                 <br />
-                <Button variant="primary" type="submit">
-                    Click here to submit form
+                <Button className={registerAct ? "registerSendDeac registerSendAct" : "registerSendDeac"} variant="primary" 
+                onClick={registerAct ? () => { fakeRegister(); }: () => {} }>
+                    Registrar usuario
                 </Button>
             </Form>
         </div>
