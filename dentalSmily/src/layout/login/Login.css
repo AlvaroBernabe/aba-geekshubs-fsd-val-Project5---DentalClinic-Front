@@ -18,3 +18,19 @@
     justify-content: center;
     background-color: rgb(0, 255, 72);
 }
+
+
+
+
+.LoginForm {
+
+    height: 80vh;
+    width: 100vw;
+
+    background-color: lightgrey;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

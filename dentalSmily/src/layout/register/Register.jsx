@@ -16,16 +16,16 @@ export function Register() {
         password: "",
       });
 
-    const [valiUser, setValiUser] = useState({
-        fullnameVali: false,
-        emailVali: false,
-        passwordVali: false,
-    });
-
     const [credencialesError, setCredencialesError] = useState({
         fullnameError: "",
         emailError: "",
         passwordError: "",
+    });
+
+    const [valiUser, setValiUser] = useState({
+        fullnameVali: false,
+        emailVali: false,
+        passwordVali: false,
     });
 
     const [registerAct, setRegisterAct] = useState (false);
