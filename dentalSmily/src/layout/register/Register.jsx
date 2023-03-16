@@ -7,6 +7,7 @@ import { validate } from '../../helpers/useful';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import './Register.css';
+import { newUser } from '../services/apiCalls';
 
 export function Register() {
 
@@ -113,7 +114,7 @@ export function Register() {
                             <div>{credencialesError.passwordError}</div>
                             <br />
                             <Button className={registerAct ? "registerSendDeac registerSendAct" : "registerSendDeac"} variant="primary" 
-                            onClick={registerAct ? () => { fakeRegister(); }: () => {} }>
+                            onClick={registerAct ? () => { newUser(); }: () => {} }>
                                 Register User
                             </Button>
                         </Form>

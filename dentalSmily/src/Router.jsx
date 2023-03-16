@@ -6,6 +6,8 @@ import { Login } from './layout/login/Login';
 import { Profile } from './layout/profile/Profile';
 import { Register } from './layout/register/Register';
 import { Treatment } from './layout/treatment/Treatment';
+import { newRole } from './layout/newRole/newRole';
+import { Appointment} from './layout/newAppointment/newAppointment';
 
 
 export const Router = () => {
@@ -19,6 +21,8 @@ export const Router = () => {
         <Route path='/register' element={<Register/>} />
         <Route path='/about' element={<About/>} />
         <Route path='/profile' element={<Profile />} />
+        <Route path='/newrole' element={<newRole />} />
+        <Route path='/appointment' element={<Appointment />} />
     </Routes>
     </>
     )

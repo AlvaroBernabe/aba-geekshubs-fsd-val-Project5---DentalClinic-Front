@@ -31,6 +31,8 @@ function NavBar ()  {
               <>
                 <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
                 <Nav.Link as={Link} to='/logout'>Logout</Nav.Link>
+                <Nav.Link as={Link} to='/newRole'>ChangeRole</Nav.Link>
+                <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
               </>
             ) : (
               <>

@@ -1,8 +1,5 @@
 import React, {useState, useEffect} from "react";
-
 import "./Login.css";
-
-//Importo métodos de Redux
 import { useDispatch } from "react-redux";
 import { login } from "./userSlice";
 import { decodeToken } from "react-jwt";
@@ -14,16 +11,13 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 export const Login = () => {
 
-    //Instancio Redux en modo escritura
-
     const dispatch = useDispatch();
-
-  const [credenciales, setCredenciales] = useState({
+    const [credenciales, setCredenciales] = useState({
     email: '',
     password: ''
-  })
+    })
 
-  const inputHandler = (e) => {
+    const inputHandler = (e) => {
 
     setCredenciales((prevState) => ({
         ...prevState,
@@ -37,7 +31,6 @@ export const Login = () => {
   }
 
   const logeame = () => {
-    console.log('hdalsdhaksjdhaksjdh');
     logMe(credenciales)
         .then(
             respuesta => {
@@ -47,14 +40,13 @@ export const Login = () => {
                     token: respuesta.data,
                     usuario: decodificado
                 };       
-                console.log("holadasdas" , datosBackend)
+                console.log("Bienvenido" , datosBackend)
                 // console.log(datosBackend);
                 //Este es el momento en el que guardo en REDUX
                 dispatch(login({credentials: datosBackend}));
             }
         )
         .catch(error => console.log(error))
-
   }
 
     return (
