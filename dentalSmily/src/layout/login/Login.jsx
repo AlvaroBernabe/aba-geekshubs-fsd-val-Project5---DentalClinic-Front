@@ -1,50 +1,61 @@
-import React, { useState, useEffect }  from 'react';
-import { Form } from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import NavBar from '../../components/NavBar';
-import './Login.css';
+import React, {useState, useEffect} from "react";
+
+import "./Login.css";
+
+//Importo métodos de Redux
+import { useDispatch } from "react-redux";
+import { login } from "./userSlice";
+import { decodeToken } from "react-jwt";
+import { InputText } from "../../components/InputText/InputText";
+import { logMe } from "../services/apiCalls";
+import NavBar from "../../components/NavBar";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 
 
+export const Login = () => {
 
-import { useJwt } from 'react-jwt';
-import { InputText } from '../../components/InputText/InputText';
-import { useDispatch } from 'react-redux';
-import { logMe } from '../services/apiCalls';
-import { decodeToken } from 'react-jwt/dist/jwt';
+    //Instancio Redux en modo escritura
 
-export function Login() {
     const dispatch = useDispatch();
-    let user = {
-        email: '',
-        password: ''
-    };
-    const [valor, setValor] = useState(user);
 
+  const [credenciales, setCredenciales] = useState({
+    email: '',
+    password: ''
+  })
 
-    const inputHandler = (e) => {
-        setCredenciales((prevState) => ({
-            ...prevState, [e.target.name]: e.target.value,
-        }));
-    }
+  const inputHandler = (e) => {
 
-    const checkError = (e) => {}
+    setCredenciales((prevState) => ({
+        ...prevState,
+        [e.target.name]: e.target.value,
+      }));
 
-    const logeame = () => {
-        console.log('intento de log');
-        logMe(credenciales)
-            .then(
-                respuesta => {
-                    let tokenDecodificado = decodeToken(respuesta.data)
-                    console.log(tokenDecodificado)
-                    let datosBackend = {
-                        token: respuesta.data,
-                        usuario: tokenDecodificado
-                    };
-                    console.log("Bienvenido", datosBackend)
-                    dispatch(login({credentials: datosBackend}));
-                }
-            ) .catch(error => console.log(error))
-    }
+  }
+
+  const checkError = (e) => {
+
+  }
+
+  const logeame = () => {
+    console.log('hdalsdhaksjdhaksjdh');
+    logMe(credenciales)
+        .then(
+            respuesta => {
+              let decodificado = decodeToken(respuesta.data)
+              console.log(decodificado)
+                let datosBackend = {
+                    token: respuesta.data,
+                    usuario: decodificado
+                };       
+                console.log("holadasdas" , datosBackend)
+                // console.log(datosBackend);
+                //Este es el momento en el que guardo en REDUX
+                dispatch(login({credentials: datosBackend}));
+            }
+        )
+        .catch(error => console.log(error))
+
+  }
 
     return (
         <>
@@ -62,14 +73,12 @@ export function Login() {
                                 type={"email"} name={"email"} placeholder={"email..."} required={true}
                                 changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
                             </Form.Group>
-                            <div>{credencialesError.emailError}</div>
                             <Form.Group>
                                 <Form.Label>Enter your password:</Form.Label>
                                 <InputText className={"inputLogin"}
                                 type={"password"} name={"password"} placeholder={""} required={true} 
                                 changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
                             </Form.Group>
-                            <div>{credencialesError.passwordError}</div>
                             <br />
                             <Button className="botonLog" variant="primary" 
                             onClick={()=> logeame()}> Login User

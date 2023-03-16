@@ -24,10 +24,6 @@
 
 .LoginForm {
 
-    height: 80vh;
-    width: 100vw;
-
-    background-color: lightgrey;
 
     display: flex;
     flex-direction: column;
