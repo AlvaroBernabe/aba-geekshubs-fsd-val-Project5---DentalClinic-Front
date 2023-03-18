@@ -4,13 +4,15 @@ export const validate = (name, data, required) => {
         case "surname":
         case "nombre":
         case "apellido":
-        case "fullName":
+        case "nombrecompleto":
         case "fullname":
-        case "nombrecompleto":    
+        case "fullName":    
             if (data === "" && required === true) {
                 return {message: "Please fill the field", validated: false};
             } else if (!/[a-z]/gi.test(data)) {
                 return {message: "Please fill with a valid text", validated: false};
+            } else if (data.length > 50) {
+                    return {message: "The input cannot be more than 50 characters long", validated: false};
             } return {message: "", validated: true};
 
         case "email":
@@ -24,13 +26,27 @@ export const validate = (name, data, required) => {
                 return {message: "Invalid e-mail format", validated: false};
             } return {message: "", validated: true};
 
-        case "password":
         case "contraseña":
+        case "password":
             if (data === "" && required === true) {
                 return {message: "Please fill the field", validated: false};
-            } else if ((!/[\d()+-]/g.test(data)))  {
-                return {message: "Invalid password format and too short", validated: false};
-            } return {message: "", validated: true};
+            } else if (data.length < 8) {
+                return {message: "Password must be at least 8 characters long", validated: false};
+              }
+              if (!(/[a-z]/.test(data))) {
+                return {message: "Password must contain at least a lower case", validated: false};
+              }
+              if (!(/[A-Z]/.test(data))) {
+                return {message: "Password must contain at least an upper case", validated: false};
+              }
+              if (!(/[0-9]/.test(data))) {
+                return {message: "Password must contain at least a number", validated: false};
+              }
+              if (data.length > 50) {
+                return {message: "The input cannot be more than 50 characters long", validated: false};
+              } else {
+                return "";
+              }
         case "phone":
         case "tfno":
         case "tlfno":
@@ -38,7 +54,7 @@ export const validate = (name, data, required) => {
         case "phonenumber":
             if (data === "" && required === true) {
                 return {message: "Please fill the field", validated: false};
-            } else if (!/[\d()+-]/g.test(data)) {
+            } else if (!(/[0-9]/.test(data))) {
                 return {message: "Invalid phone format", validated: false};
             } return {message: "", validated: true};
         default:
