@@ -23,6 +23,7 @@ export const Router = () => {
         <Route path='/profile' element={<Profile />} />
         <Route path='/newrole' element={<newRole />} />
         <Route path='/appointment' element={<Appointment />} />
+        <Route path='*' element={<Home />} />
     </Routes>
     </>
     )
