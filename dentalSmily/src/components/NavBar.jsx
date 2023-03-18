@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import './NavBar.css'
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { userData } from '../layout/login/userSlice';
+import { userData } from '../layout/userSlice';
 import { logMe } from '../layout/services/apiCalls';
 import { decodeToken } from 'react-jwt';
 
@@ -35,7 +35,7 @@ function NavBar ()  {
 
   useEffect(() => {
     // decriptToken()
-    console.log(credencialesRedux);
+    // console.log(credencialesRedux);
     // console.log("hola", credencialesRedux.credentials.usuario.roleId)
     // console.log(credencialesRedux.credentials)
   })
@@ -49,25 +49,28 @@ function NavBar ()  {
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/">Home</Nav.Link>
             <Nav.Link as={Link} to="/treatment">Treatment</Nav.Link>
-            <Navbar.Brand  className='Logo'>Welcome To dentalSmily</Navbar.Brand>
+            <Nav.Link  className='perfil' as={Link} to='/user/myprofile'>
+              <div>{credencialesRedux?.credentials?.usuario?.fullName}</div>
+            </Nav.Link>
+            {/* <Navbar.Brand  className='Logo'><div>{credencialesRedux?.credentials?.usuario?.fullName}</div></Navbar.Brand> */}
             {credencialesRedux?.credentials?.usuario?.roleId === 3 ? (           
               <>
-                <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
+                {/* <Nav.Link as={Link} to='/user/myprofile'>Profile</Nav.Link> */}
                 <Nav.Link as={Link} to='/logout'>Logout</Nav.Link>
                 <Nav.Link as={Link} to='/newRole'>ChangeRole</Nav.Link>
                 <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
-                <Nav.Link as={Link} to='/userget'>getUsersAdmin</Nav.Link>
+                <Nav.Link as={Link} to='/user/getall'>allUsers</Nav.Link>
               </> 
               ) : credencialesRedux?.credentials?.usuario?.roleId === 2 ? (
                   <>
-                  <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
+                  <Nav.Link as={Link} to='/user/myprofile'>Profile</Nav.Link>
                   <Nav.Link as={Link} to='/logout'>Logout</Nav.Link>
                   <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
-                  <Nav.Link as={Link} to='/userget'>getUsersAdmin</Nav.Link>
+                  <Nav.Link as={Link} to='/user/getall'>allUsers</Nav.Link>
                 </> 
                 ) : credencialesRedux?.credentials?.usuario?.roleId === 1 ? (
                   <>
-                  <Nav.Link as={Link} to='/profile'>Profile</Nav.Link>
+                  <Nav.Link as={Link} to='/user/myprofile'>Profile</Nav.Link>
                   <Nav.Link as={Link} to='/logout'>Logout</Nav.Link>
                   <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
                   </>
@@ -76,7 +79,7 @@ function NavBar ()  {
                 <Nav.Link as={Link} to='/login'>Login</Nav.Link>
                 <Nav.Link as={Link} to='/register'>Register</Nav.Link>
               </>
-                  )}
+                )}
             <Nav.Link as={Link} to="/about">About Us</Nav.Link>
           </Nav>
         </Navbar.Collapse>
