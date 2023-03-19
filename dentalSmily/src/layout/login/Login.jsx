@@ -7,7 +7,7 @@ import { InputText } from "../../components/InputText/InputText";
 import { logMe } from "../services/apiCalls";
 import NavBar from "../../components/NavBar";
 import { Button, Col, Container, Form, Row } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export const Login = () => {
     const navigate = useNavigate();
@@ -23,7 +23,7 @@ export const Login = () => {
     useEffect(() => {
         if (credentialsRdx.credentials.token) {
           //Si No token...home redirect
-          navigate("/");
+          Navigate("/");
         }
       }, []);
 
@@ -51,10 +51,11 @@ export const Login = () => {
                 // console.log(datosBackend);
                 //Este es el momento en el que guardo en REDUX
                 dispatch(login({credentials: datosBackend}));
+             
                 setWelcome(`Bienvenid@ de nuevo ${datosBackend.usuario.fullName}`);
         //Redirección a Home
         setTimeout(() => {
-            navigate("/");
+            navigate("/login");
           }, 3000);
         })
         .catch(error => console.log(error))
