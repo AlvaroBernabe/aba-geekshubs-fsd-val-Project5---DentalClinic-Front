@@ -75,12 +75,20 @@ export function Register() {
         }));
     };
 
+    // const fakeRegister = () => {
+    //     console.log("victoria");
+    // };
 
-
-    const fakeRegister = () => {
-        console.log("victoria");
-    };
-
+    const registerUser = () => {
+        newUser (credenciales)
+              .then(() => {
+                setTimeout(() => {
+                  navigate("/login");
+                }, 3500);
+              })
+              .catch(error => console.log(error));
+          };
+          
     return (
         <>
         <NavBar />
@@ -94,7 +102,7 @@ export function Register() {
                             <Form.Group>
                                 <Form.Label>Enter your Name and Surname:</Form.Label>
                                 <InputText className={ credencialesError.fullnameError === "" ? "inputBasicDesign" : "inputBasicDesign inputErrorDesign"}
-                                type={"text"} name={"fullname"} placeholder={"Enter your complete name"}  required={true} 
+                                type={"text"} name={"fullName"} placeholder={"Enter your complete name"}  required={true} 
                                 changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
                             </Form.Group>
                             <div>{credencialesError.fullnameError}</div>
@@ -114,7 +122,7 @@ export function Register() {
                             <div>{credencialesError.passwordError}</div>
                             <br />
                             <Button className={registerAct ? "registerSendDeac registerSendAct" : "registerSendDeac"} variant="primary" 
-                            onClick={registerAct ? () => { newUser(); }: () => {} }>
+                                onClick={registerUser}>
                                 Register User
                             </Button>
                         </Form>

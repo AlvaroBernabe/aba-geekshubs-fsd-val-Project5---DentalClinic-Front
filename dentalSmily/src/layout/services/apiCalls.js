@@ -11,13 +11,28 @@ export const newUser = async (body) => {
     return await axios.post(`${root}/user`, body)
 }
 
-
 export const getUserData = async () => {
     // let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjgsImVtYWlsIjoiYWx2YXJvZHNhZmQyc2RAZ21haWwuY29tIiwicm9sZUlkIjoxLCJmdWxsTmFtZSI6ImFsdmFyaXRvMWYyNDEwOTMiLCJpYXQiOjE2NzkwMDYwNDIsImV4cCI6MTY3OTAxMzI0Mn0.viYPBwegREjJysz0RTPpMGkFlr_113d6cW8piubCL9Y";
     // let config = {        headers: { Authorization: `Bearer ${token}` }    };
     let config = {        headers: { Authorization: `Bearer ${credentials.token}` }    };
-    return await axios.get(`${root}/user`, config)
+    return await axios.get(`${root}/user/myprofile`, config)
 }
+
+export const bringUsers = async (token) => {
+        // let config = { headers: { 'Authorization': 'Bearer '+ token,  } };
+        // return await axios.get(`${root}/user/all`, config);
+            let config = await axios.get(`${root}/users/all`, {
+            headers: {
+              Authorization: `Bearer ${credentials.token}`,
+            },
+          });
+          return config;
+    }
+
+
+// export const getUserDataall = async () => {
+//     return await axios.get(`http://localhost:3000/login`)
+// }
 
 // export const reservations = async (body, token) => {
 //     var config = {
@@ -34,3 +49,9 @@ export const nuevoAppointment = async (body) => {
     let config = {        headers: { Authorization: `Bearer ${token}` }    };
     return await axios.post(`${root}/appointment`, body, config)
 }
+
+
+
+  export const updateUser = async (body) => {
+    return await axios.put(`${root}updateprofile`, body);
+  }
