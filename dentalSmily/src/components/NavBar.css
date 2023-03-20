@@ -3,6 +3,8 @@ body {
     background-color: rgb(0, 255, 255);
     background-image: url(../assets/background3.png);
     background-size: 9em;
+    /* height: 10vh;
+    width: 100vw; */
     /* width:200px;
     height:200px;
     -webkit-animation-name: rotate;
@@ -35,6 +37,8 @@ body {
     display: flex;
     justify-content: center;
     background-color: rgb(236, 192, 255);
+    /* width: 100vw; */
+    /* height: 10vh; */
     width: 100vw;
     background-image: url(../assets/Logo.png);
     background-position: center;

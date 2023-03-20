@@ -2,9 +2,9 @@ import React, { useState, useEffect }  from 'react';
 import { Form } from 'react-bootstrap';
 
 import Button from 'react-bootstrap/Button';
-import { InputText } from '../../components/InputText/InputText';
-import NavBar from '../../components/NavBar';
-import { nuevoAppointment } from '../services/apiCalls';
+import { InputText } from '../../../components/InputText/InputText';
+import NavBar from '../../../components/NavBar';
+import { nuevoAppointment } from '../../services/apiCalls';
 
 
 import './newAppointment.css';

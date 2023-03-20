@@ -10,22 +10,24 @@ import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import { Navigate, useNavigate } from "react-router-dom";
 
 export const Login = () => {
-    const navigate = useNavigate();
-    const credentialsRdx = useSelector(userData);
-    const [welcome, setWelcome] = useState("");
-
+    // const navigate = useNavigate();
     const dispatch = useDispatch();
+    const credentialsRdx = useSelector(userData);
+
+
+    // const credentialsRdx = useSelector(userData);
+    const [welcome, setWelcome] = useState("");
     const [credenciales, setCredenciales] = useState({
     email: '',
     password: ''
     })
 
-    useEffect(() => {
-        if (credentialsRdx.credentials.token) {
-          //Si No token...home redirect
-          Navigate("/");
-        }
-      }, []);
+    // useEffect(() => {
+    //     if (credentialsRdx.credentials.token) {
+    //       //Si No token...home redirect
+    //       Navigate("/");
+    //     }
+    //   }, []);
 
     const inputHandler = (e) => {
         setCredenciales((prevState) => ({
@@ -46,21 +48,19 @@ export const Login = () => {
                     token: respuesta.data,
                     usuario: decodificado
                 };       
-                // ("Bienvenido" JSON.stringify(datosBackend.usuario.fullName) )
-          //      console.log("Bienvenido" , datosBackend.usuario.roleId)                       //Esto me saca el RoleId 
-                // console.log(datosBackend);
                 //Este es el momento en el que guardo en REDUX
+                // console.log("este es el token decofdificado", decodificado)
+                // console.log("este es datosBacked", datosBackend)
+                // console.log("este es respuesta", respuesta)
                 dispatch(login({credentials: datosBackend}));
-             
                 setWelcome(`Bienvenid@ de nuevo ${datosBackend.usuario.fullName}`);
         //Redirección a Home
-        setTimeout(() => {
-            navigate("/login");
-          }, 3000);
+        // setTimeout(() => {
+        //     navigate("/login");
+        //   }, 3000);
         })
         .catch(error => console.log(error))
   };
-
     return (
         <>
         <NavBar />

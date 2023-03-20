@@ -5,6 +5,8 @@ import { InputText } from '../../components/InputText/InputText';
 import NavBar from '../../components/NavBar';
 import { getUserData } from '../services/apiCalls';
 import './Profile.css';
+import { useSelector } from 'react-redux';
+
 
 export const Profile = () => {
 
@@ -21,6 +23,11 @@ export const Profile = () => {
     //     const {name, value} = target;
     //     setValor({...valor,[name]:value});
     // }
+
+
+    const ReduxCredentials = useSelector(userData);
+
+
 
     const [userData, setUserData] = useState({
         name: '',
@@ -43,7 +50,8 @@ export const Profile = () => {
 
     useEffect(()=>{
         if (userData.name === ""){
-          getUserData().then(
+          getUserData(ReduxCredentials).then(
+            console.log(ReduxCredentials),
             resultado => {console.log(resultado)}
           ).catch(error => (console.log(error)))
         }
@@ -52,7 +60,8 @@ export const Profile = () => {
     const checkError = (e) => {
 
     }
-
+          //      console.log("Bienvenido" , datosBackend.usuario.roleId)                       //Esto me saca el RoleId 
+                // console.log(datosBackend);
 
     return (
         <>

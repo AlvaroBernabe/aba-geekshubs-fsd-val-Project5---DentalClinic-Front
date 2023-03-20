@@ -6,7 +6,7 @@ import NavBar from '../../components/NavBar';
 import { getUserData } from '../services/apiCalls';
 import './newRole.css';
 
-export const newRole = () => {
+export const NewRoles = () => {
     const [userData, setUserData] = useState({
         name: '',
         fullName: '',

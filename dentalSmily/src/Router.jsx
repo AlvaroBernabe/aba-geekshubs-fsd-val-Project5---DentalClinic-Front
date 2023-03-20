@@ -9,6 +9,7 @@ import { Treatment } from './layout/treatment/Treatment';
 import { Appointment} from './layout/appointment/newAppoinment/newAppointment';
 import { NewRoles } from './layout/newRole/newRole';
 import { GetAllUsers } from './layout/getUsersAdmin/getUsersAdmin';
+import { UserDetails } from './layout/getUsersAdmin/userDetails/userDetails';
 // import { UserDetails } from './layout/getUsersAdmin/userDetails/userDetails';
 
 export const Router = () => {
@@ -24,8 +25,8 @@ export const Router = () => {
         <Route path='/role/new' element={<NewRoles />} />
         <Route path='/user/myprofile' element={<Profile />} />
         <Route path='/appointment' element={<Appointment />} />
-        <Route path='/user/getall' element={<GetAllUsers />} />
-        {/* <Route path='/user/getall/details' element={<UserDetails />} /> */}
+        <Route path='/user/all' element={<GetAllUsers />} />
+        <Route path='/user/all/details' element={<UserDetails />} />
     </Routes>
     </>
     )

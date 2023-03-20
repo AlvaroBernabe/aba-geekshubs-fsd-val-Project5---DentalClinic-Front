@@ -49,14 +49,16 @@ function NavBar ()  {
                 <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
                 <Nav.Link as={Link} to='/newRole'>ChangeRole</Nav.Link>
                 <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
-                <Nav.Link as={Link} to='/user/getall'>allUsers</Nav.Link>
+                <Nav.Link as={Link} to='/user/all'>allUsers</Nav.Link>
+                <Nav.Link as={Link} to='/user/all/detail'>allUsersDetails</Nav.Link>
+                
               </> 
               ) : credencialesRedux?.credentials?.usuario?.roleId === 2 ? (
                   <>
                   <Nav.Link as={Link} to='/user/myprofile'>Profile</Nav.Link>
                   <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
                   <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
-                  <Nav.Link as={Link} to='/user/getall'>allUsers</Nav.Link>
+                  <Nav.Link as={Link} to='/user/all'>allUsers</Nav.Link>
                 </> 
                 ) : credencialesRedux?.credentials?.usuario?.roleId === 1 ? (
                   <>
