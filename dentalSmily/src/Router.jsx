@@ -10,7 +10,7 @@ import { Appointment} from './layout/appointment/newAppoinment/newAppointment';
 import { NewRoles } from './layout/newRole/newRole';
 import { GetAllUsers } from './layout/getUsersAdmin/getUsersAdmin';
 import { UserDetails } from './layout/getUsersAdmin/userDetails/userDetails';
-// import { UserDetails } from './layout/getUsersAdmin/userDetails/userDetails';
+import { ProfileUpdate } from './layout/profile/update/profileUpdate';
 
 export const Router = () => {
   return (
@@ -22,8 +22,9 @@ export const Router = () => {
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
         <Route path='/about' element={<About/>} />
-        <Route path='/role/new' element={<NewRoles />} />
+        <Route path='/user/role' element={<NewRoles />} />
         <Route path='/user/myprofile' element={<Profile />} />
+        <Route path='/user/update/' element={<ProfileUpdate />} />
         <Route path='/appointment' element={<Appointment />} />
         <Route path='/user/all' element={<GetAllUsers />} />
         <Route path='/user/all/details' element={<UserDetails />} />

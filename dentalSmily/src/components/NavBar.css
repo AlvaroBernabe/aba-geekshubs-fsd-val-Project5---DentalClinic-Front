@@ -15,7 +15,7 @@ body {
     -moz-animation-duration:2s;
     -moz-animation-iteration-count:infinite;
     -moz-animation-timing-function:linear; */
-  /*  background-blend-mode:saturation; */
+   background-blend-mode:saturation;
 }
 /* @-webkit-keyframes rotate {
     from {-webkit-transform:rotate(0deg);}
