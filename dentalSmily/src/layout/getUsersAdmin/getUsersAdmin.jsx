@@ -38,7 +38,7 @@ export const GetAllUsers = () => {
 
 
       useEffect(()=>{
-        console.log("console log de users", users)
+        // console.log("console log de users", users)      // Este saca los el array con los usuarios
         if(users.length === 0){
             // console.log(ReduxCredentials.credentials?.token)
             getTodosUsers(ReduxCredentials.credentials?.token)
@@ -74,7 +74,6 @@ export const GetAllUsers = () => {
                                         onClick={()=>selected(persona)} 
                                         key={persona.id}>
                                         {persona.fullName}
-                                        
                                     </div>
                                 )
                             }
