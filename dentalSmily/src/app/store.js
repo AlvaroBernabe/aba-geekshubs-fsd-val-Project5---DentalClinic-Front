@@ -8,10 +8,12 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
 
 import thunk from 'redux-thunk';
+import appointmentSlice from '../layout/appointmentSlice';
 
 const reducers = combineReducers({
     user: userSlice,
-    detail: detailSlice
+    detail: detailSlice,
+    appointment: appointmentSlice
 })
 
 const persistConfig = {

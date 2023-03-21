@@ -4,6 +4,7 @@ import React, {useEffect} from 'react';
 import { useSelector } from 'react-redux';
 import NavBar from '../../../components/NavBar';
 import { detailData } from '../../detailSlice';
+import './userDetails.css'
  
 export const UserDetails = () => {
 
@@ -20,18 +21,20 @@ export const UserDetails = () => {
         <NavBar />
         <hr />
          <div className=''>
-            <div>Nombre Usuario: </div>
+            <div className='texto'>Nombre Usuario: </div>
             {detailRedux?.choosenObject?.fullName}
-            <div>Email: </div>
+            <div className='texto'>Email: </div>
             {detailRedux?.choosenObject?.email}
-            <div>Dni_Nif: </div>
+            <div className='texto'>Dni_Nif: </div>
             {detailRedux?.choosenObject?.dni_nif}
-            <div>Payment: </div>
+            <div className='texto'>Payment: </div>
             {detailRedux?.choosenObject?.payment}
-            <div>Phone: </div>
+            <div className='texto'>Phone: </div>
             {detailRedux?.choosenObject?.phone}
-            <div>Role Id: </div>
+            <div className='texto'>Role Id: </div>
             {detailRedux?.choosenObject?.role_id}
+            <div className='texto'>Comments: </div>
+            {detailRedux?.choosenObject?.comments}
          </div>
          </>
      )

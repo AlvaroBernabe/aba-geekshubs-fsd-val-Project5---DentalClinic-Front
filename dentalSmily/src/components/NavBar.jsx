@@ -26,44 +26,44 @@ function NavBar ()  {
 
 
 
-  const [users, setUsers] = useState([]);
+//   const [users, setUsers] = useState([]);
 
 
-  const ReduxCredentials = useSelector(userData);
+//   const ReduxCredentials = useSelector(userData);
 
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
 
-  useEffect(()=>{
-    // console.log("console log de users", users)      // Este saca los el array con los usuarios
-    if(users.length === 0){
-        // console.log(ReduxCredentials.credentials?.token)
-        getUserData(ReduxCredentials.credentials?.token)
-            .then(
-                result => {
-                    setUsers(result.data)
-                }
-            )
-            .catch(error => console.log(error));
-    }
-},[users])
+//   useEffect(()=>{
+//     // console.log("console log de users", users)      // Este saca los el array con los usuarios
+//     if(users.length === 0){
+//         // console.log(ReduxCredentials.credentials?.token)
+//         getUserData(ReduxCredentials.credentials?.token)
+//             .then(
+//                 result => {
+//                     setUsers(result.data)
+//                 }
+//             )
+//             .catch(error => console.log(error));
+//     }
+// },[users])
 
-  const selected = (persona) => {
-    dispatch(addChoosen({ choosenObject: persona }))
+//   const selected = (persona) => {
+//     dispatch(addChoosen({ choosenObject: persona }))
 
-  }
+//   }
   
-  const user = users.map(
-    persona => {
-        return (
-            <div 
-                onClick={()=>selected(persona)} 
-                key={persona.id}>
-                {persona.fullName}
-            </div>
-        )
-    }
-)
+//   const user = users.map(
+//     persona => {
+//         return (
+//             <div 
+//                 onClick={()=>selected(persona)} 
+//                 key={persona.id}>
+//                 {persona.fullName}
+//             </div>
+//         )
+//     }
+// )
 
 
   return (
@@ -84,6 +84,7 @@ function NavBar ()  {
                 <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
                 <Nav.Link as={Link} to='/user/role'>ChangeRole</Nav.Link>
                 <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
+                <Nav.Link as={Link} to='/user/update/'>User Update</Nav.Link>
                 <Nav.Link as={Link} to='/user/all'>allUsers</Nav.Link>
                 <Nav.Link as={Link} to='/user/all/detail'>allUsersDetails</Nav.Link>
                 
@@ -92,11 +93,13 @@ function NavBar ()  {
                   <>
                   <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
                   <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
+                  <Nav.Link as={Link} to='/user/update/'>User Update</Nav.Link>
                   <Nav.Link as={Link} to='/user/all'>allUsers</Nav.Link>
                 </> 
                 ) : credencialesRedux?.credentials?.usuario?.roleId === 1 ? (
                   <>
                   <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
+                  <Nav.Link as={Link} to='/user/update/'>User Update</Nav.Link>
                   <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
                   </>
                   ) : (
