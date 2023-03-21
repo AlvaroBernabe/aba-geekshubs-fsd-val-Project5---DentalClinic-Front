@@ -18,7 +18,10 @@ export const userSlice = createSlice({
             ...state,
             ...action.payload
             }
-        }      
+        },
+        // token: (state, action) => {
+        //     return {}
+        // }      
     } 
 });
 

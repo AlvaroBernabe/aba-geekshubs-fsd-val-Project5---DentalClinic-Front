@@ -9,33 +9,11 @@ import { userData } from '../userSlice';
 
 
 export const GetAllUsers = () => {
-
-    // const [users, setUsers] = useState({
-    //     name: '',
-    //     fullName: '',
-    //     email: '',
-    //     password: '',
-    //     dni: '',
-    //     phone: '' ,
-    //   });
     
     const [users, setUsers] = useState([]);
-
-
       const ReduxCredentials = useSelector(userData);
-
       const dispatch = useDispatch();
       const navigate = useNavigate();
-
-      // const inputHandler = (e) => {
-      //   setUserData((prevState) => ({
-      //     ...prevState,
-      //     [e.target.name]: e.target.value,
-      //   }));
-      // };
-    
-
-
 
       useEffect(()=>{
         // console.log("console log de users", users)      // Este saca los el array con los usuarios
@@ -45,6 +23,7 @@ export const GetAllUsers = () => {
                 .then(
                     result => {
                         setUsers(result.data)
+                        console.log(result)
                     }
                 )
                 .catch(error => console.log(error));

@@ -70,12 +70,10 @@ export function Register() {
             e.target.required
         );
         error = checked.message;
-
         setValiUser((prevState) => ({
             ...prevState,
             [e.target.name + "Vali"]: checked.validated,
         }));
-
         setCredencialesError((prevState) => ({
             ...prevState,
             [e.target.name + "Error"]: error,

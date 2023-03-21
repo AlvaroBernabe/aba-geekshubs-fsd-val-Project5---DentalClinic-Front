@@ -11,6 +11,7 @@ import { NewRoles } from './layout/newRole/newRole';
 import { GetAllUsers } from './layout/getUsersAdmin/getUsersAdmin';
 import { UserDetails } from './layout/getUsersAdmin/userDetails/userDetails';
 import { ProfileUpdate } from './layout/profile/update/profileUpdate';
+import { GetAppointmentasUser } from './layout/appointment/getAppointmentasUser';
 
 export const Router = () => {
   return (
@@ -28,6 +29,8 @@ export const Router = () => {
         <Route path='/appointment' element={<Appointment />} />
         <Route path='/user/all' element={<GetAllUsers />} />
         <Route path='/user/all/details' element={<UserDetails />} />
+        <Route path='/appointment/myappoinment' element={<GetAppointmentasUser />} />
+
     </Routes>
     </>
     )

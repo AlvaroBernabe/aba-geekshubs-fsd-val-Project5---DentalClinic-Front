@@ -15,53 +15,30 @@ import { appointmentDetailData } from '../../appointmentSlice';
 import './newAppointment.css';
 
 export const Appointment = () => {
-
-    // const [users, setUsers] = useState([]);
-
     const navigate = useNavigate();
     const ReduxCredentials = useSelector(userData);
     const detallesAppointment = useSelector(appointmentDetailData)
-    // console.log(ReduxCredentials.credentials.usuario.userId)
-
 
     // const integer = parseInt(service_id, doctor_id)
 
-    // const [appointments, setAppointments] = useState({
-    //     // let integerservice = parseInt(service_id, 10),
-    //     // let integerdoctor = parseInt(doctor_id, 10),
-    //     // service_id: parseInt('', 10),
-    //     // doctor_id: parseInt('', 10),
-    //     service_id: 2,
-    //     doctor_id: 1,
-    //     user_id: ReduxCredentials.credentials.usuario.userId,
-    //     payment: 1,
-    //     date: new Date(),
-    //   });
+    const [appointments, setAppointments] = useState({
+        // let integerservice = parseInt(service_id, 10),
+        // let integerdoctor = parseInt(doctor_id, 10),
+        // service_id: parseInt('', 10),
+        // doctor_id: parseInt('', 10),
+        service_id: '',
+        doctor_id: '',
+        user_id: ReduxCredentials.credentials.usuario.userId,
+        payment: '',
+        date: '',
+      });
 
-      const [appointments, setAppointments] = useState([]);
+    //   const [appointments, setAppointments] = useState([]);
 
     //   useEffect(()=>{
     //     getUserData
     //     console.log(ReduxCredentials,"patata")
     // },[])
-
-    
-    // useEffect(()=>{
-    //     // console.log("console log de users", users)      // Este saca los el array con los usuarios
-    //     if(appointment.name !== 0){
-    //         nuevoAppointment(appointment)
-    //         // console.log("esto es ", ReduxCredentials.credentials?.token)
-    //         let token = ReduxCredentials.credentials?.token;
-    //         // console.log(getUserData[token])
-    //         getUserData()
-    //             .then(
-    //                 result => {
-    //                     setAppointment(result.data)
-    //                 }
-    //             )
-    //             .catch(error => console.log(error));
-    //     }
-    // },[appointment])
     
       const inputHandler = (e) => {
         setAppointments((prevState) => ({
@@ -71,17 +48,10 @@ export const Appointment = () => {
       };
       console.log(appointments)
 
-    //   useEffect(() => {
-    //     setAppointments((prevState) => ({
-    //       ...prevState,
-    //       user_id: ReduxCredentials.credentials.usuario.userId,
-    //     }));
-    //   }, [appointments]);
 
 
-
-//     const checkError = (e) => {
-//     }
+    const checkError = (e) => {
+    }
 //     const registerappointment = () => {
 //       nuevoAppointment(appointments)
 //       .then(() => {
@@ -105,19 +75,11 @@ export const Appointment = () => {
 
 
 const registerappointment = () => {
-    let body = {
-        service_id: 2,
-        doctor_id: 1,
-        user_id: ReduxCredentials.credentials.usuario.userId,
-        payment: 1,
-        date: 2012-10-10,
-    }
-    nuevoAppointment(body, ReduxCredentials.credentials.token)
+
+    nuevoAppointment(appointments, ReduxCredentials.credentials.token)
         .then(resultado => {
-            //Esto se ejecutará si el pedido se ha realizado correctamente
-            //mostrando el mensaje
             setAppointments(resultado.data)
-            console.log(body)
+            // console.log(resultado)
             //Después de haber realizado el pedido, llevamos al user a su perfil
             // setTimeout(()=>{
             //     navigate('/profile');
