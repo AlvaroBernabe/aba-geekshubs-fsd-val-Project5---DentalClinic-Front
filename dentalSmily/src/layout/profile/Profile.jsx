@@ -1,5 +1,6 @@
 
 import React, {useEffect, useState} from 'react';
+import { Card, ListGroup } from 'react-bootstrap';
 
 import { useSelector } from 'react-redux';
 import NavBar from '../../components/NavBar';
@@ -32,8 +33,8 @@ export const Profile = () => {
                 email: result.data.data.email,
                 dni_nif: result.data.data.dni_nif,
                 payment: result.data.data.payment,
-                direction: result.data.data.direction,
-                phone: result.data.data.phone
+                phone: result.data.data.phone,
+                role_id: result.data.data.role_id,
             });
             })
             .catch((error) => console.log(error));
@@ -44,19 +45,17 @@ export const Profile = () => {
         <>
         <NavBar />
         <hr />
-         <div className=''>
-            <div className='texto'>Nombre Usuario: </div>
-            {users.fullName}
-            <div className='texto'>Email: </div>
-            {users.email}
-            <div className='texto'>Dni_Nif: </div>
-            {users.dni_nif}
-            <div className='texto'>Payment: </div>
-            {users.payment}
-            <div className='texto'>Phone: </div>
-            {users.direction}
-            <div className='texto'>Role Id: </div>
-            {users.phone}
+         <div className='divCartas'>
+            <Card style={{ width: '18rem' }}>
+                <ListGroup variant="flush">
+                    <ListGroup.Item>Nombre Usuario:{users.fullName}</ListGroup.Item>
+                    <ListGroup.Item>Email: {users.email}</ListGroup.Item>
+                    <ListGroup.Item>Dni_Nif:{users.dni_nif}</ListGroup.Item>
+                    <ListGroup.Item>Default Payment: {users.payment}</ListGroup.Item>
+                    <ListGroup.Item>Phone number: {users.phone}</ListGroup.Item>
+                    <ListGroup.Item>Role Id: {users.role_id}</ListGroup.Item>
+                </ListGroup>
+            </Card>
          </div>
          </>
      )
