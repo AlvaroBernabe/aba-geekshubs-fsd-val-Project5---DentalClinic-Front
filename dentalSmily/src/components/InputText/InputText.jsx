@@ -6,13 +6,14 @@ export const InputText = ({
     type,
     name,
     placeholder,
+    maxLength,
     required,
     changeFunction,
     blurFunction
 }) => {
     return (
         <>
-        <input className={className} type={type} name={name} placeholder={placeholder} required={required}
+        <input className={className} type={type} name={name} placeholder={placeholder} maxLength={maxLength} required={required}
         onChange={(e)=> changeFunction(e)} onBlur={(e)=>blurFunction(e)}   />
         </>
     )

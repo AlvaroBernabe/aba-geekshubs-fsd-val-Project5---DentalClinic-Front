@@ -1,10 +1,11 @@
 
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { useSelector } from 'react-redux';
 import NavBar from '../../components/NavBar';
 import { detailData } from '../detailSlice';
 import { getUserData } from '../services/apiCalls';
+import { userData } from '../userSlice';
 
 import './Profile.css'
  
@@ -18,48 +19,44 @@ export const Profile = () => {
         email: "",
         phone: ""
     }
-        
     );
     const ReduxCredentials = useSelector(userData);
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (users.name === "") {
-        getUserProfile(ReduxCredentials.credentials.token)
+            getUserData(ReduxCredentials.credentials.token)
             .then((result) => {
-            console.log(result.data.user);
+            console.log(result.data.data);
             setUsers({
-                name: result.data.user.name,
-                surname: result.data.user.surname,
-                nif: result.data.user.nif,
-                birth_date: result.data.user.birth_date,
-                direction: result.data.user.direction,
-                email: result.data.user.email,
-                phone: result.data.user.phone
+                fullName: result.data.data.fullName,
+                email: result.data.data.email,
+                dni_nif: result.data.data.dni_nif,
+                payment: result.data.data.payment,
+                direction: result.data.data.direction,
+                phone: result.data.data.phone
             });
             })
             .catch((error) => console.log(error));
         }
     }, [users]);
-
+    console.log(users);
      return (
         <>
         <NavBar />
         <hr />
          <div className=''>
             <div className='texto'>Nombre Usuario: </div>
-            {detailRedux?.choosenObject?.fullName}
+            {users.fullName}
             <div className='texto'>Email: </div>
-            {detailRedux?.choosenObject?.email}
+            {users.email}
             <div className='texto'>Dni_Nif: </div>
-            {detailRedux?.choosenObject?.dni_nif}
+            {users.dni_nif}
             <div className='texto'>Payment: </div>
-            {detailRedux?.choosenObject?.payment}
+            {users.payment}
             <div className='texto'>Phone: </div>
-            {detailRedux?.choosenObject?.phone}
+            {users.direction}
             <div className='texto'>Role Id: </div>
-            {detailRedux?.choosenObject?.role_id}
+            {users.phone}
          </div>
          </>
      )

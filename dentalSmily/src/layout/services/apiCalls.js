@@ -2,7 +2,10 @@ import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { userData } from '../userSlice';
 
-const root = "http://localhost:3000";
+// const root = "http://localhost:3000";
+const root = "https://project04-dentalclinic-production-2c5e.up.railway.app";
+
+
 
 export const logMe = async (body) => {
     return await axios.post(`${root}/login`, body);
@@ -41,7 +44,18 @@ export const nuevoAppointment = async ( body, token) => {
     headers: { 
       'Authorization': 'Bearer '+ token,  
     }};
-        return await axios.post(`${root}/appointment`,body, config )
+        return await axios.post(`${root}/appointment/`,body, config)
+}
+
+export const updateAppointment = async ( body, token, params ) => {
+  console.log("----------------------------------------------",)
+  console.log("esto vale body", body)
+  console.log("Esto vale tokensss:",token)
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }};
+        return await axios.put(`${root}/appointmentmodify/${params}`,body, config )
 }
 
 export const getAppointmentasUser = async (token) => {
