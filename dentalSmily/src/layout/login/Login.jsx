@@ -48,6 +48,7 @@ export const Login = () => {
                     token: respuesta.data,
                     usuario: decodificado
                 };       
+                console.log("esto es respuesta.data", respuesta.data)
                 //Este es el momento en el que guardo en REDUX
                 // console.log("este es el token decofdificado", decodificado)
                 // console.log("este es datosBacked", datosBackend)
@@ -78,13 +79,13 @@ export const Login = () => {
                                 <Form.Group>
                                     <Form.Label>Enter your email account:</Form.Label>
                                     <InputText className={"inputLogin"}
-                                    type={"email"} name={"email"} placeholder={"email..."} required={true}
+                                    type={"email"} name={"email"} maxLength = {50} placeholder={"email..."} required={true}
                                     changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Enter your password:</Form.Label>
                                     <InputText className={"inputLogin"}
-                                    type={"password"} name={"password"} placeholder={""} required={true} 
+                                    type={"password"} name={"password"} maxLength = {50} placeholder={""} required={true} 
                                     changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
                                 </Form.Group>
                                 <br />
@@ -96,9 +97,8 @@ export const Login = () => {
                     </Row>
                 </Container>
             </div>
-        )}
-        </div>
-
+            )}
+            </div>
         </div>
         </>
     );

@@ -113,6 +113,7 @@ export function Register() {
                                         }
                                         type={"text"}
                                         name={"fullName"}
+                                        maxLength = {40}
                                         placeholder={"Enter your complete name"}
                                         required={true}
                                         changeFunction={(e) => inputHandler(e)}
@@ -132,6 +133,7 @@ export function Register() {
                                         }
                                         type={"email"}
                                         name={"email"}
+                                        maxLength = {50}
                                         placeholder={"Enter your email"}
                                         required={true}
                                         changeFunction={(e) => inputHandler(e)}
@@ -152,6 +154,7 @@ export function Register() {
                                         }
                                         type={"password"}
                                         name={"password"}
+                                        maxLength = {50}
                                         placeholder={"Enter your password"}
                                         required={true}
                                         changeFunction={(e) => inputHandler(e)}
