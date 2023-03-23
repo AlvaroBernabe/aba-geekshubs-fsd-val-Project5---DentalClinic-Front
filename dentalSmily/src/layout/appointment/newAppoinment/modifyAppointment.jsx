@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import { useSelector } from 'react-redux';
 import { InputText } from '../../../components/InputText/InputText';
 import NavBar from '../../../components/NavBar';
+import { appointmentData } from '../../appointmentSlice';
 import { updateAppointment } from '../../services/apiCalls';
 import { userData } from '../../userSlice';
 
@@ -11,7 +12,8 @@ import { userData } from '../../userSlice';
 export const ModifyAppointment = () => {
 
     const ReduxCredentials = useSelector(userData);
-    let params = ReduxCredentials.choosenAppointment.id 
+    const ReduxAppointment = useSelector(appointmentData)
+    let params = ReduxAppointment.choosenAppointment.id 
 
     const [appointments, setAppointments] = useState({
         service_id: '',
@@ -34,14 +36,14 @@ export const ModifyAppointment = () => {
     }
 
     const updateAppoinment = () => {
-        updateAppointment(appointments, ReduxCredentials.credentials.token)
+        updateAppointment(params, appointments, ReduxCredentials.credentials.token)
             .then(resultado => {
                 setAppointments(resultado.data)
                 setWelcome(`Cita modificada correctamente para el día: ${appointments.date}`);
                 // console.log(resultado)
-                setTimeout(()=>{
-                    navigate('/');
-                },3500);
+                // setTimeout(()=>{
+                //     navigate('/');
+                // },3500);
             })
             .catch(error => {
                 setAppointments(error.message);
@@ -64,12 +66,12 @@ export const ModifyAppointment = () => {
               type={"number"} name={"service_id"} placeholder={"service_id..."} required={true}
               changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
               </Form.Group>
-          <Form.Group>
+          {/* <Form.Group>
               <Form.Label>user_id:</Form.Label>
               <InputText className={"user_id"}
                 type={"number"} name={"user_id"} placeholder={"user_id..."} required={true}
                 changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-          </Form.Group>
+          </Form.Group> */}
           <Form.Group>
               <Form.Label>doctor_id:</Form.Label>
               <InputText className={"doctor_id"}
@@ -90,7 +92,7 @@ export const ModifyAppointment = () => {
               </Form.Group>
               <br />
               <div className='botonModificar'>
-                  <Button variant="primary" type="submit" onClick={updateAppoinment}>
+                  <Button variant="primary" onClick={updateAppoinment}>
                       Modificar Datos
                   </Button>
               </div>
