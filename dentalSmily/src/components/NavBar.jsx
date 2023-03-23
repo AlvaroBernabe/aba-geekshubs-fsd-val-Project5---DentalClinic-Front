@@ -84,7 +84,6 @@ function NavBar ()  {
                 <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
                 <Nav.Link as={Link} to='/user/role'>ChangeRole</Nav.Link>
                 <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
-                <Nav.Link as={Link} to='/appointment/modify'>modify appointment</Nav.Link>
                 <Nav.Link as={Link} to='/user/update'>User Update</Nav.Link>
                 <Nav.Link as={Link} to='/user/all'>allUsers</Nav.Link>
                 <Nav.Link as={Link} to='/user/all/detail'>allUsersDetails</Nav.Link>
@@ -103,6 +102,7 @@ function NavBar ()  {
                   <Nav.Link as={Link} to='/user/update'>User Update</Nav.Link>
                   <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
                   <Nav.Link as={Link} to='/appointment/myappoinment'>My Appoinment</Nav.Link>
+                  <Nav.Link as={Link} to='/appointment/update'>Update appointment</Nav.Link>
                   </>
                   ) : (
                   <>

@@ -31,7 +31,7 @@ export const Router = () => {
         <Route path='/user/all' element={<GetAllUsers />} />
         <Route path='/user/all/details' element={<UserDetails />} />
         <Route path='/appointment/myappoinment' element={<GetAppointmentasUser />} />
-        <Route path='/appointment/modify' element={<ModifyAppointment/>} />
+        <Route path='/appointment/update' element={<ModifyAppointment/>} />
 
 
     </Routes>
