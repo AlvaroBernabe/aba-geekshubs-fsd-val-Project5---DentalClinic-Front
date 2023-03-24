@@ -45,8 +45,7 @@ export const validate = (name, data, required) => {
               if (data.length > 50) {
                 return {message: "The input cannot be more than 50 characters long", validated: false};
               } else {
-                return "";
-              }
+            } return {message: "", validated: true};
         case "phone":
         case "tfno":
         case "tlfno":

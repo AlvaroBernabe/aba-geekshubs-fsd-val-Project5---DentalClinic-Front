@@ -77,7 +77,15 @@ export const userUpdate = async (body, token) => {
   return await axios.put(`${root}/user/update/`, body, config)
 }
 
+export const getAppointmentasDoctor = async (token) => {
 
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/appointmentAsDoctor`, config, token)
+}
 
 // export const reservations = async (body, token) => {
 //     var config = {

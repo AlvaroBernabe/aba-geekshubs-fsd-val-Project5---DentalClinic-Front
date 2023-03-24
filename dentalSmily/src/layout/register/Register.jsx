@@ -13,19 +13,19 @@ import { useNavigate } from "react-router-dom";
 export function Register() {
     const navigate = useNavigate();
     const [credenciales, setCredenciales] = useState({
-        fullname: "",
+        fullName: "",
         email: "",
         password: "",
     });
 
     const [credencialesError, setCredencialesError] = useState({
-        fullnameError: "",
+        fullNameError: "",
         emailError: "",
         passwordError: "",
     });
 
     const [valiUser, setValiUser] = useState({
-        fullnameVali: false,
+        fullNameVali: false,
         emailVali: false,
         passwordVali: false,
     });
@@ -107,7 +107,7 @@ export function Register() {
                                     </Form.Label>
                                     <InputText
                                         className={
-                                            credencialesError.fullnameError ===
+                                            credencialesError.fullNameError ===
                                             ""
                                                 ? "inputBasicDesign"
                                                 : "inputBasicDesign inputErrorDesign"
@@ -121,7 +121,7 @@ export function Register() {
                                         blurFunction={(e) => checkError(e)}
                                     />
                                 </Form.Group>
-                                <div>{credencialesError.fullnameError}</div>
+                                <div>{credencialesError.fullNameError}</div>
                                 <Form.Group>
                                     <Form.Label>
                                         Enter your email address:

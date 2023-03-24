@@ -13,14 +13,15 @@ export const ModifyAppointment = () => {
 
     const ReduxCredentials = useSelector(userData);
     const ReduxAppointment = useSelector(appointmentData)
-    let params = ReduxAppointment.choosenAppointment.id 
+
+    // let params = ReduxAppointment.choosenAppointment.id 
 
     const [appointments, setAppointments] = useState({
-        service_id: '',
-        doctor_id: '',
-        user_id: '',
-        payment: '',
-        date: '',
+        service_id: 2,
+        doctor_id: 2,
+        user_id: ReduxCredentials.credentials.usuario.userId,
+        payment: false,
+        date: new Date(),
       });
     
 
@@ -30,6 +31,9 @@ export const ModifyAppointment = () => {
           [e.target.name]: e.target.value,
         }));
       };
+
+    //   console.log(appointments, "esto es appointment")
+      console.log(ReduxAppointment, "esto es reduxappointment")
 
     const checkError = (e) => {
 
@@ -93,7 +97,7 @@ export const ModifyAppointment = () => {
               <br />
               <div className='botonModificar'>
                   <Button variant="primary" onClick={updateAppoinment}>
-                      Modificar Datos
+                      Modificar Cita
                   </Button>
               </div>
           </Form>
