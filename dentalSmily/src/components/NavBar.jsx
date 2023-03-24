@@ -15,6 +15,8 @@ function NavBar ()  {
 
   const credencialesRedux = useSelector(userData);
 
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
 
   const logout = () => {
@@ -81,7 +83,7 @@ function NavBar ()  {
             {credencialesRedux?.credentials?.usuario?.roleId === 3 ? (           
               <>
                 {/* <Nav.Link as={Link} to='/user/myprofile'>Profile</Nav.Link> */}
-                <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
+                <Nav.Link as={Link} to='/' onClick={() => logout()}>Logout</Nav.Link>
                 <Nav.Link as={Link} to='/user/role'>ChangeRole</Nav.Link>
                 <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
                 <Nav.Link as={Link} to='/user/update'>User Update</Nav.Link>
@@ -91,14 +93,13 @@ function NavBar ()  {
               </> 
               ) : credencialesRedux?.credentials?.usuario?.roleId === 2 ? (
                   <>
-                  <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
-                  <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
+                  <Nav.Link as={Link} to='/' onClick={() => logout()}>Logout</Nav.Link>
                   <Nav.Link as={Link} to='/user/update'>User Update</Nav.Link>
-                  <Nav.Link as={Link} to='/user/all'>allUsers</Nav.Link>
+                  <Nav.Link as={Link} to='/appointment/dentist/myappointment'>Show My Appointment</Nav.Link>
                 </> 
                 ) : credencialesRedux?.credentials?.usuario?.roleId === 1 ? (
                   <>
-                  <Nav.Link as={Link} to='/logout' onClick={() => logout()}>Logout</Nav.Link>
+                  <Nav.Link as={Link} to='/' onClick={() => logout()}>Logout</Nav.Link>
                   <Nav.Link as={Link} to='/user/update'>User Update</Nav.Link>
                   <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>
                   <Nav.Link as={Link} to='/appointment/myappoinment'>My Appoinment</Nav.Link>
