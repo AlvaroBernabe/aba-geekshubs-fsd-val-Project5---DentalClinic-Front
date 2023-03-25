@@ -14,9 +14,7 @@ import { addChoosen } from '../layout/detailSlice';
 function NavBar ()  {
 
   const credencialesRedux = useSelector(userData);
-
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
 
   const logout = () => {
@@ -24,49 +22,6 @@ function NavBar ()  {
     dispatch(userout({ credentials: {}, token: '' }));
     return navigate("/");
   };
-
-
-
-
-//   const [users, setUsers] = useState([]);
-
-
-//   const ReduxCredentials = useSelector(userData);
-
-//   const navigate = useNavigate();
-
-
-//   useEffect(()=>{
-//     // console.log("console log de users", users)      // Este saca los el array con los usuarios
-//     if(users.length === 0){
-//         // console.log(ReduxCredentials.credentials?.token)
-//         getUserData(ReduxCredentials.credentials?.token)
-//             .then(
-//                 result => {
-//                     setUsers(result.data)
-//                 }
-//             )
-//             .catch(error => console.log(error));
-//     }
-// },[users])
-
-//   const selected = (persona) => {
-//     dispatch(addChoosen({ choosenObject: persona }))
-
-//   }
-  
-//   const user = users.map(
-//     persona => {
-//         return (
-//             <div 
-//                 onClick={()=>selected(persona)} 
-//                 key={persona.id}>
-//                 {persona.fullName}
-//             </div>
-//         )
-//     }
-// )
-
 
   return (
     <div className='navbarstyle'>
@@ -82,7 +37,6 @@ function NavBar ()  {
             </Nav.Link>
             {credencialesRedux?.credentials?.usuario?.roleId === 3 ? (           
               <>
-                {/* <Nav.Link as={Link} to='/user/myprofile'>Profile</Nav.Link> */}
                 <Nav.Link as={Link} to='/' onClick={() => logout()}>Logout</Nav.Link>
                 <Nav.Link as={Link} to='/user/role'>ChangeRole</Nav.Link>
                 <Nav.Link as={Link} to='/appointment'>newAppointment</Nav.Link>

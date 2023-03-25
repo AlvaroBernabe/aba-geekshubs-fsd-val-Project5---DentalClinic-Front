@@ -65,7 +65,7 @@ export const getAppointmentasUser = async (token) => {
       'Authorization': 'Bearer '+ token,  
     }
     };
-    return await axios.get(`${root}/appointmentuser`, config, token)
+    return await axios.get(`${root}/appointmentuser`, config)
 }
 
 export const userUpdate = async (body, token) => {

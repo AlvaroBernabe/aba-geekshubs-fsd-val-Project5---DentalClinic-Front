@@ -14,11 +14,35 @@ export const Appointment = () => {
     const [welcome, setWelcome] = useState("");
     const ReduxCredentials = useSelector(userData);
 
+
+    const [treatments, setTreatments] = useState([
+        {
+          id: 1,
+          servicename: "Cleaning"
+        },
+        {
+          id: 2,
+          servicename: "Broken Teeth"
+        }
+      ]);
+      const [doctors, setDoctors] = useState([
+        {
+          id: 1,
+          specialtyname: "Orthodontics"
+        },
+        {
+          id: 2,
+          specialtyname: "Oral Surgery"
+        }
+      ]);
+
+
+
     const [appointments, setAppointments] = useState({
         service_id: '',
         doctor_id: '',
         user_id: ReduxCredentials.credentials.usuario.userId,
-        payment: '',
+        payment_id: '',
         date: '',
       });
 
@@ -31,18 +55,17 @@ export const Appointment = () => {
       };
       console.log(appointments)
 
-    const checkError = (e) => {
-    }
+    const checkError = (e) => { }
 
 const registerappointment = () => {
 
     nuevoAppointment(appointments, ReduxCredentials.credentials.token)
-        .then(resultado => {
+        .then( (resultado) => {
             setAppointments(resultado.data)
             setWelcome(`Cita creada correctamente para el día: ${appointments.date}`);
             // console.log(resultado)
             setTimeout(()=>{
-                navigate('/');
+                navigate('/profile');
             },3500);
         })
         .catch(error => {
@@ -63,36 +86,42 @@ const registerappointment = () => {
                     <Row className="LoginForm">
                         <Col lg={6}>
                             <Form>
-                            <Form.Group>
-                <Form.Label>Service Id:</Form.Label>
-                <InputText className={"service_id"}
-                                type={"number"} name={"service_id"} placeholder={"service_id"} required={true}
-                                changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Doctor_id:</Form.Label>
-                <InputText className={"inputProfile"}
-                                type={"number"} name={"doctor_id"} placeholder={"doctor_id"} required={true}
-                                changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Payment:</Form.Label>
-                <InputText className={"payment"}
-                                type={"boolean"} name={"payment"} placeholder={"payment"} required={true}
-                                changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-            </Form.Group>
-            <Form.Group>
-                <Form.Label>Date:</Form.Label>
-                <InputText className={"date"}
-                                type={"datetime-local"} name={"date"} placeholder={"date"} required={true}
-                                changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-            </Form.Group>
-            <br />
-            <div className='botonModificar'>
-                <Button variant="primary" onClick={registerappointment}>
-                    New Date
-                </Button>
-            </div>
+                                <Form.Select name={"service_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                                    <option>Choose your Treatment:</option>
+                                    {treatments.map((treatment) => {
+                                        return (
+                                            <option key={treatment.id} value={treatment.id}>{treatment.servicename}</option>
+                                        )
+                                    })}
+                                </Form.Select>
+                            <p></p>
+                                <Form.Select name={"doctor_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                                    <option>Choose Doctor Specialist:</option>
+                                    {doctors.map((doctor) => {
+                                        return (
+                                            <option key={doctor.id} value={doctor.id}>{doctor.specialtyname}</option>
+                                        )
+                                    })}
+                                </Form.Select>
+                                <p></p>
+                                <Form.Select name={"payment_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                                    <option>Choose Default payment:</option>
+                                    <option value="1">Cash</option>
+                                    <option value="2">Card</option>
+                                </Form.Select>
+                                <p></p>
+                                <Form.Group>
+                                    <Form.Label>Date:</Form.Label>
+                                    <InputText className={"date"}
+                                                    type={"datetime-local"} name={"date"} placeholder={"date"} required={true}
+                                                    changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
+                                </Form.Group>
+                                <p></p>
+                                <div className='botonModificar'>
+                                    <Button variant="primary" onClick={registerappointment}>
+                                        New Date
+                                    </Button>
+                                </div>
                             </Form>
                         </Col>
                     </Row>
