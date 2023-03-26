@@ -30,3 +30,11 @@
     justify-content: center;
     align-items: center;
 }
+
+
+.formLogin {
+    width: 20em auto;
+    padding: 1em;
+    color: rgb(4, 4, 225);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
