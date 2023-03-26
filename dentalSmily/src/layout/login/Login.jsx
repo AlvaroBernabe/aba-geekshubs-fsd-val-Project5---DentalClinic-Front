@@ -40,7 +40,7 @@ export const Login = () => {
                 dispatch(login({credentials: datosBackend}));
                 setWelcome(`Bienvenid@ de nuevo ${datosBackend.usuario.fullName}`);
         setTimeout(() => {
-            navigate("/profile");
+            navigate("/user/myprofile");
           }, 3000);
         })
         .catch(error => console.log(error))

@@ -1,11 +1,9 @@
-
-.botonModificar{
-    justify-content: center;
-    display: flex;
-    align-items: center;
+.text1{
+    color:blue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
-Form {
-    color: darkblue;
-    font-size: large;
+.text2{
+    color:rgb(195, 0, 255);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

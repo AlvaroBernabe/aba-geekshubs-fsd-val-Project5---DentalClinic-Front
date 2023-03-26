@@ -30,6 +30,7 @@ h4 {
 
 
 .formRegister {
+    justify-content: center;
     width: 20em auto;
     padding: 1em;
     color: rgb(4, 4, 225);
@@ -42,4 +43,7 @@ h4 {
 
 .registerForm {
     color: aqua;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
 }
