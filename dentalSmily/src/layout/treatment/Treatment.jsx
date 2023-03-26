@@ -17,118 +17,82 @@ export const Treatment = () => {
         <>
             <NavBar />
             <hr />
-            <div>Welcome To the treatments Available</div>
+            <h1>Welcome To the treatments Available</h1>
             <div className="main">
             <CardGroup>
                 <Card>
                     <Card.Img variant="top" src={treatment1} />
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Missing Teeth</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in
-                        to additional content. This content is a little bit longer.
+                    We can restore your smile, as well as speaking & eating ability with advanced prosthetics.
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
                 </Card>
                 <Card>
                     <Card.Img variant="top" src={treatment2} />
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Uneven Teeth</Card.Title>
                     <Card.Text>
-                        This card has supporting text below as a natural lead-in to
-                        additional content.{' '}
+                    We offer a state of the art solution of straightening your teeth through invisible dental braces.
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
                 </Card>
                 <Card>
                     <Card.Img variant="top" src={treatment3} />
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Tooth Stains</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in
-                        to additional content. This card has even longer content than the
-                        first to show that equal height action.
+                    We offer a couple of whitening procedures to brighten your teeth and return the smile yo tour face.
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
                 </Card>
                 <Card>
                     <Card.Img variant="top" src={treatment4} />
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Broken or Chipped Tooth</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in
-                        to additional content. This content is a little bit longer.
+                    Chipped teeth can be treated either by cosmetic bonding or porcelain restoration.
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
                 </Card>
             </CardGroup>
             <CardGroup>
                 <Card>
                     <Card.Img variant="top" src={treatment5} />
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Dental Anxiety</Card.Title>
                     <Card.Text>
-                        This card has supporting text below as a natural lead-in to
-                        additional content.{' '}
+                    We offer a wide range of services to help you overcome your fear and finally enjoy good oral health.
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
                 </Card>
                 <Card>
                     <Card.Img variant="top" src={treatment6} />
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Tooth Pain</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in
-                        to additional content. This card has even longer content than the
-                        first to show that equal height action.
+                    Tooth pain can be caused by various problems. Oral examination can help determine the cause.
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
                 </Card>
                 <Card>
                     <Card.Img variant="top" src={treatment7} />
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Periodontal Disease</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in
-                        to additional content. This card has even longer content than the
-                        first to show that equal height action.
+                    We offer a variety of periodontal treatments, customized for your specific health needs.
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
                 </Card>
                 <Card>
                     <Card.Img variant="top" src={treatment8} />
                     <Card.Body>
-                    <Card.Title>Card title</Card.Title>
+                    <Card.Title>Cavvities & Decay</Card.Title>
                     <Card.Text>
-                        This is a wider card with supporting text below as a natural lead-in
-                        to additional content. This card has even longer content than the
-                        first to show that equal height action.
+                    We use modern technology to detect decay in the earliest stages, saving and preserving your teeth.
                     </Card.Text>
                     </Card.Body>
-                    <Card.Footer>
-                    <small className="text-muted">Last updated 3 mins ago</small>
-                    </Card.Footer>
                 </Card>
             </CardGroup>
         </div>
