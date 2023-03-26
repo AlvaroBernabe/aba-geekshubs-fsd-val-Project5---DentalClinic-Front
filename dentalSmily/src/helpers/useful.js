@@ -17,13 +17,24 @@ export const validate = (name, data, required) => {
 
         case "email":
         case "correo":
+        case "payment":
         case "e-mail":
             if (data === "" && required === true) {
                 return {message: "Please fill the field", validated: false};
-            } else if (
+            } else if ( 
                 !/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(data)
             ) {
                 return {message: "Invalid e-mail format", validated: false};
+            } return {message: "", validated: true};
+
+        case "dni_nif":
+            if (data === "" && required === true) {
+                return {message: "Please fill the field", validated: false};
+            } else if ( 
+                /^[x]*\d{8}[a-z]$/.test(data)
+            ) {    
+                return {message: "Invalid DNI format 11123654F", validated: false};
+            } else {
             } return {message: "", validated: true};
 
         case "contraseña":
