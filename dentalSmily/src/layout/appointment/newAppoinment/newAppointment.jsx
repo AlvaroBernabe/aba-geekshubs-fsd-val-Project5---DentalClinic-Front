@@ -63,7 +63,6 @@ const registerappointment = () => {
         .then( (resultado) => {
             setAppointments(resultado.data)
             setWelcome(`Cita creada correctamente para el día: ${appointments.date}`);
-            // console.log(resultado)
             setTimeout(()=>{
                 navigate('/profile');
             },3500);
@@ -85,7 +84,7 @@ const registerappointment = () => {
                 <Container>
                     <Row className="LoginForm">
                         <Col lg={6}>
-                            <Form>
+                            <Form className='formAppointment'>
                                 <Form.Select name={"service_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
                                     <option>Choose your Treatment:</option>
                                     {treatments.map((treatment) => {
