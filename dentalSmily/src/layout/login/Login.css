@@ -1,0 +1,38 @@
+.botones {
+    background-color: red;
+    display: flex;
+    justify-content: space-around;
+}
+
+.botonRestaurar {
+    font-size: xx-small;
+    background-color: pink;
+}
+
+.botonLogin {
+    font-size: larger;
+}
+
+.formulario {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(0, 255, 72);
+}
+
+
+
+
+.LoginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+}
+
+
+.formLogin {
+    width: 20em auto;
+    padding: 1em;
+    color: rgb(4, 4, 225);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

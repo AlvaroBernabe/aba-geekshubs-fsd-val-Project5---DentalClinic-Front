@@ -1,0 +1,18 @@
+
+
+.maps {
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    color: rgb(212, 0, 255);
+}
+
+b {
+    color: purple;
+}
+
+li {
+    color: rgb(21, 0, 255);
+}
