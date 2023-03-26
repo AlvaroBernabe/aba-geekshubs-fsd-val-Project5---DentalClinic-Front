@@ -52,8 +52,7 @@ function NavBar ()  {
                   <NavDropdown title="Appointments" id="navbarScrollingDropdown">
                     <NavDropdown.Item as={Link} to='/appointment'>New Appointment</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/appointment/myappoinment'>My Appoinments</NavDropdown.Item>
-                    <NavDropdown.Item eventKey="disabled" disabled as={Link} to='/appointment/update'>Update Appointment</NavDropdown.Item>
-                    
+                    <NavDropdown.Item as={Link} to='/appointment/update'>Update Appointment</NavDropdown.Item>                    
                   </NavDropdown>
                   <Nav.Link as={Link} to='/' onClick={() => logout()}>Logout</Nav.Link>
                   </>

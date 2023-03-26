@@ -7,12 +7,9 @@ import { detailData } from '../../detailSlice';
 import './userDetails.css'
  
 export const UserDetails = () => {
-
-    //conexion a RDX en modo lectura
     const detailRedux = useSelector(detailData);
 
     useEffect(()=>{
-        console.log(detailRedux,"patata")
     },[])
 
 

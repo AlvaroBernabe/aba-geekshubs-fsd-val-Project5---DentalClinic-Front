@@ -2,6 +2,7 @@ import React, { useState, useEffect }  from 'react';
 import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { InputText } from '../../../components/InputText/InputText';
 import NavBar from '../../../components/NavBar';
 import { appointmentData } from '../../appointmentSlice';
@@ -13,6 +14,8 @@ export const ModifyAppointment = () => {
     const ReduxCredentials = useSelector(userData);
     const ReduxAppointment = useSelector(appointmentData)
     const [welcome, setWelcome] = useState("");
+    const navigate = useNavigate();
+    console.log(ReduxAppointment, "esto es Redux Appointment")
     let params = ReduxAppointment.choosenAppointment.id 
 
     const [treatments, setTreatments] = useState([
@@ -38,6 +41,7 @@ export const ModifyAppointment = () => {
 
 
     const [appointments, setAppointments] = useState({
+        id: params,
         service_id: "",
         doctor_id: "",
         user_id: ReduxCredentials.credentials.usuario.userId,
@@ -60,7 +64,7 @@ export const ModifyAppointment = () => {
               setAppointments(resultado.data)
               setWelcome(`Cita modificada correctamente para el día: ${appointments.date}`);
               setTimeout(()=>{
-                  navigate('/user/myprofile');
+                  navigate('/appointment/update');
               },3500);
           })
           .catch(error => {
@@ -101,7 +105,7 @@ export const ModifyAppointment = () => {
                                   })}
                               </Form.Select>
                               <p></p>
-                              <Form.Select name={"payment_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                              <Form.Select name={"payment"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
                                   <option>Choose Default payment:</option>
                                   <option value="1">Cash</option>
                                   <option value="2">Card</option>

@@ -87,25 +87,6 @@ export const getAppointmentasDoctor = async (token) => {
     return await axios.get(`${root}/appointmentAsDoctor`, config, token)
 }
 
-// export const reservations = async (body, token) => {
-//     var config = {
-//         headers: { 
-//         'Authorization': 'Bearer '+ token,  
-//         }
-//     };
-//     return await axios.get(`${route}/api/reservations`, body, config);
-// };
-
-
-
-
-
-
-  // export const updateUser = async (body) => {
-  //   return await axios.put(`${root}/updateprofile`, body);
-  // }
-
-
   export const changeRole = async (body, token) => {
     const { id, role_id } = body;
     // const userId = req.params.id
@@ -123,26 +104,3 @@ export const getAppointmentasDoctor = async (token) => {
       }}
     return await axios.put(`${root}/user/update/role/.id`,  bodyParameters, config);
   }
-
-
-
-
-
-//   export let getOrders = async (userInfo, jwt) => {
-
-//     try {
-//         await axios.get(`${API_URL}/order/user/${userInfo.id}`, {
-//             headers: {
-//                 "auth-token": jwt
-//             }
-//         }).then(response => {
-//             returnedArticles = response
-//         })
-//         return returnedArticles
-//     }
-//     catch (error) {
-//         returnedMessage = "Something went wrong!"
-//         return returnedArticles;
-
-//     }
-// };
