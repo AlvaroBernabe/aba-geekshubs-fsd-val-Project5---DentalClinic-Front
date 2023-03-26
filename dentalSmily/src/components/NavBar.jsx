@@ -37,7 +37,8 @@ function NavBar ()  {
                 <NavDropdown title="Users" id="navbarScrollingDropdown">
                     <NavDropdown.Item as={Link} to='/user/all'>Show all Users</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/user/all/detail'>Show Users Details</NavDropdown.Item>
-                  </NavDropdown>
+                </NavDropdown>
+                <Nav.Link as={Link} to='/appointment/getall'>Get All Appointments</Nav.Link>
                 <Nav.Link as={Link} to='/' onClick={() => logout()}>Logout</Nav.Link>
               </> 
               ) : credencialesRedux?.credentials?.usuario?.roleId === 2 ? (

@@ -87,6 +87,15 @@ export const getAppointmentasDoctor = async (token) => {
     return await axios.get(`${root}/appointmentAsDoctor`, config, token)
 }
 
+export const getAllAppoinment = async (token) => {
+  let config = {
+    headers: { 
+      'Authorization': 'Bearer '+ token,  
+    }
+    };
+    return await axios.get(`${root}/appointments`, config)
+}
+
   export const changeRole = async (body, token) => {
     const { id, role_id } = body;
     // const userId = req.params.id

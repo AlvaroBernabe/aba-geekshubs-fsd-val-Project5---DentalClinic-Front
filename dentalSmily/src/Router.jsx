@@ -14,6 +14,7 @@ import { ProfileUpdate } from './layout/profile/update/profileUpdate';
 import { GetAppointmentasUser } from './layout/appointment/getAppointmentasUser';
 import { ModifyAppointment } from './layout/appointment/newAppoinment/modifyAppointment';
 import { GetMyAppointmentAsDoctor } from './layout/appointment/getMyAppointmentAsDoctor/getMyAppointmentAsDoctor';
+import { GetAllAppointment } from './layout/appointment/getAllAppointment/getAllAppointment';
 
 export const Router = () => {
   return (
@@ -34,6 +35,8 @@ export const Router = () => {
         <Route path='/appointment/myappoinment' element={<GetAppointmentasUser />} />
         <Route path='/appointment/update' element={<ModifyAppointment/>} />
         <Route path='/appointment/dentist/myappointment' element={<GetMyAppointmentAsDoctor/>} />
+        <Route path='/appointment/getall' element={<GetAllAppointment/>} />
+
     </Routes>
     </>
     )
