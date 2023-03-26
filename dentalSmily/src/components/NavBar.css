@@ -3,8 +3,29 @@ body {
     background-color: rgb(0, 255, 255);
     background-image: url(../assets/background3.png);
     background-size: 9em;
-    background-blend-mode:luminosity;
+    /* height: 10vh;
+    width: 100vw; */
+    /* width:200px;
+    height:200px;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration:2s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+    -moz-animation-name: rotate;
+    -moz-animation-duration:2s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function:linear; */
+   background-blend-mode:saturation;
 }
+/* @-webkit-keyframes rotate {
+    from {-webkit-transform:rotate(0deg);}
+    to {  -webkit-transform:rotate(360deg);}
+  }
+  
+  @-moz-keyframes rotate {
+    from {-moz-transform:rotate(0deg);}
+    to {  -moz-transform:rotate(360deg);}
+  } */
 
 .Logo {
     font-family:sans-serif;
@@ -16,6 +37,8 @@ body {
     display: flex;
     justify-content: left;
     background-color: rgb(236, 192, 255);
+    /* width: 100vw; */
+    /* height: 10vh; */
     width: 100vw;
     background-image: url(../assets/Logo.png);
     background-position: center;
@@ -24,8 +47,4 @@ body {
 
 .perfil {
   font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.texto {
-  color: red;  
 }

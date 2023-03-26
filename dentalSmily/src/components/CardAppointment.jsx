@@ -1,23 +1,24 @@
+import dayjs from "dayjs";
 import React from "react";
-import Card from 'react-bootstrap/Card';
+import Card from "react-bootstrap/Card";
 
-//   export const CardAppointment = ({appo}) => {
-    function CardAppointment ({appo})  {
-      return (
-        <Card style={{ width: '18rem' }}>
-          <Card.Body>
-            <Card.Title>{appo.date}</Card.Title>
+function CardAppointment({ appo }) {
+    return (
+        <Card style={{ width: "18rem" }}>
+            <Card.Body>
+                <Card.Title >
+                    {dayjs(appo.date).format("MM/DD HH:mm")}
+                </Card.Title>
                 <ul>
-                    <li><li>Tipo de tratemiento</li>{appo.Service.servicename}</li>
-                    <li><li>Dutación tratamiento</li>{appo.Service.duration}</li>
-                    <li><li>Precio tratamiento</li>{appo.Service.price}</li>
-                    <li><li>Tipo de pago</li>{appo.User.payment}</li>
+                    <li><span className="textColor">Type of Treatment: </span>{appo.Service.servicename}</li>
+                    <li><span className="textColor">Duration Treatment: </span>{appo.Service.duration}</li>
+                    <li><span className="textColor">Price: </span>{appo.Service.price}</li>
+                    <li><span className="textColor">Payment Method: </span>{appo.User.payment}</li>
+                    <li><span className="textColor">Description: </span>{appo.Service.description}</li>
                 </ul>
-          </Card.Body>
+            </Card.Body>
         </Card>
-      );
-    }
-    
+    );
+}
 
-    
 export default CardAppointment;
