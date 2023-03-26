@@ -12,6 +12,8 @@ import { useNavigate } from "react-router-dom";
 
 export function Register() {
   const navigate = useNavigate();
+  const [welcome, setWelcome] = useState("");
+
   const [credenciales, setCredenciales] = useState({
     fullName: "",
     email: "",
@@ -84,9 +86,10 @@ export function Register() {
   const registerUser = () => {
     newUser(credenciales)
       .then(() => {
+        setWelcome(`Correctly registered ${credenciales.email}`);
         setTimeout(() => {
           navigate("/login");
-        }, 2000);
+        }, 2500);
       })
       .catch((error) => console.log(error));
   };
@@ -95,6 +98,11 @@ export function Register() {
     <>
       <NavBar />
       <hr />
+      <div className="divPrincipal">
+            <div className="loginDesign">
+                {welcome !== "" ? (
+            <div>{welcome}</div>
+        ) : (
       <div className="divPrincipal">
         <Container>
           <Row className="registerForm">
@@ -172,10 +180,10 @@ export function Register() {
                 <Button
                   className={
                     registerAct
-                      ? "registerSendDeac registerSendAct"
-                      : "registerSendDeac"
+                      ? "registerSendDeac"
+                      : "registerSendAct"
                   }
-                  variant="primary"
+                  // variant="primary"
                   onClick={registerUser}
                 >
                   Register User
@@ -184,7 +192,10 @@ export function Register() {
             </Col>
           </Row>
         </Container>
-      </div>
-    </>
-  );
+        </div>
+            )}
+            </div>
+        </div>
+        </>
+    );
 }
