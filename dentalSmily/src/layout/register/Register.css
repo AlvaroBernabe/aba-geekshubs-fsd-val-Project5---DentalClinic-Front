@@ -23,11 +23,23 @@ h4 {
 }
 
 
+.errorDiv {
+    color: rgb(231, 62, 0);
+    font-family:'Times New Roman', Times, serif
+}
 
-/* .registerForm {
-    margin-top: 20vh;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
+.formComplete {
+    width: 20em auto;
+    padding: 1em;
+    color: rgb(4, 4, 225);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.divPrincipal {
+    color: red;
+}
+
+.registerForm {
+    color: aqua;
+}

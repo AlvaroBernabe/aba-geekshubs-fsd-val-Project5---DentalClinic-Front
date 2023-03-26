@@ -35,7 +35,7 @@ body {
 .navbarstyle {
     font-size:large;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     background-color: rgb(236, 192, 255);
     /* width: 100vw; */
     /* height: 10vh; */

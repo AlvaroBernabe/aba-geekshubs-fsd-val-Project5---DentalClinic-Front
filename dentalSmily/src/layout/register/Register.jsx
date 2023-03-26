@@ -95,12 +95,12 @@ export function Register() {
         <>
             <NavBar />
             <hr />
-            <div style={{ display: "block", width: 700, padding: 30 }}>
-                <h4>Crea tu usuario</h4>
+            <div className="divPrincipal">
+                {/* <h4>Crea tu usuario</h4> */}
                 <Container>
                     <Row className="registerForm">
                         <Col lg={6}>
-                            <Form>
+                            <Form className="formComplete">
                                 <Form.Group>
                                     <Form.Label>
                                         Enter your Name and Surname:
@@ -114,14 +114,14 @@ export function Register() {
                                         }
                                         type={"text"}
                                         name={"fullName"}
-                                        maxLength = {40}
+                                        maxLength = {70}
                                         placeholder={"Enter your complete name"}
                                         required={true}
                                         changeFunction={(e) => inputHandler(e)}
                                         blurFunction={(e) => checkError(e)}
                                     />
                                 </Form.Group>
-                                <div>{credencialesError.fullNameError}</div>
+                                <div className="errorDiv">{credencialesError.fullNameError }</div>
                                 <Form.Group>
                                     <Form.Label>
                                         Enter your email address:
@@ -141,7 +141,7 @@ export function Register() {
                                         blurFunction={(e) => checkError(e)}
                                     />
                                 </Form.Group>
-                                <div>{credencialesError.emailError}</div>
+                                <div className="errorDiv">{credencialesError.emailError}</div>
                                 <Form.Group>
                                     <Form.Label>
                                         Enter your password:
@@ -155,14 +155,14 @@ export function Register() {
                                         }
                                         type={"password"}
                                         name={"password"}
-                                        maxLength = {50}
+                                        maxLength = {64}
                                         placeholder={"Enter your password"}
                                         required={true}
                                         changeFunction={(e) => inputHandler(e)}
                                         blurFunction={(e) => checkError(e)}
                                     />
                                 </Form.Group>
-                                <div>{credencialesError.passwordError}</div>
+                                <div className="errorDiv">{credencialesError.passwordError}</div>
                                 <br />
                                 <Button
                                     className={

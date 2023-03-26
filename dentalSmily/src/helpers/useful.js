@@ -11,8 +11,8 @@ export const validate = (name, data, required) => {
                 return {message: "Please fill the field", validated: false};
             } else if (!/[a-z]/gi.test(data)) {
                 return {message: "Please fill with a valid text", validated: false};
-            } else if (data.length > 50) {
-                    return {message: "The input cannot be more than 50 characters long", validated: false};
+            } else if (data.length > 70) {
+                    return {message: "The input cannot be more than 70 characters long", validated: false};
             } return {message: "", validated: true};
 
         case "email":
@@ -42,8 +42,8 @@ export const validate = (name, data, required) => {
               if (!(/[0-9]/.test(data))) {
                 return {message: "Password must contain at least a number", validated: false};
               }
-              if (data.length > 50) {
-                return {message: "The input cannot be more than 50 characters long", validated: false};
+              if (data.length > 64) {
+                return {message: "The input cannot be more than 64 characters long", validated: false};
               } else {
             } return {message: "", validated: true};
         case "phone":
@@ -55,7 +55,9 @@ export const validate = (name, data, required) => {
                 return {message: "Please fill the field", validated: false};
             } else if (!(/[0-9]/.test(data))) {
                 return {message: "Invalid phone format", validated: false};
-            } return {message: "", validated: true};
+            } else if (data.length > 10) {
+                return {message: "The input cannot be more than 10 characters long", validated: false};
+              } else {return {message: "", validated: true};}
         default:
             console.log("Field not recognized");
     };
