@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row, Spinner } from "react-bootstrap";
+import { ProgressBar  } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import NavBar from "../../../components/NavBar";
 import { getAppointmentasDoctor } from "../../services/apiCalls";
@@ -13,7 +13,6 @@ export const GetMyAppointmentAsDoctor = () => {
         if (appointments.length === 0) {
             getAppointmentasDoctor(ReduxCredentials?.credentials?.token)
                 .then(result => {
-                    // console.log(result, "hola soy result");
                     setAppointments(result.data.data);
                 })
                 .catch((error) => {
@@ -21,7 +20,6 @@ export const GetMyAppointmentAsDoctor = () => {
                 });
         }
     }, [appointments]);
-    console.log(appointments.data, "hola soy appointment")
 
     return (
         <>
@@ -44,7 +42,7 @@ export const GetMyAppointmentAsDoctor = () => {
                         }  
                         </div>)
                         :
-                        ( <Spinner animation="border" variant="primary" />)
+                        ( <ProgressBar animated now={45} />)
                     
                     }
                     </div>

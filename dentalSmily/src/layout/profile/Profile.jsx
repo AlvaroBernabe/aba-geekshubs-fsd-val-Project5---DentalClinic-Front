@@ -45,8 +45,8 @@ export const Profile = () => {
                 <Card style={{ width: "20rem" }}>
                     <ListGroup variant="flush">
                         <ListGroup.Item>
-                                <span className="text1"> Nombre Usuario:</span> 
-                                <span className="text2"> {users.fullName}</span>
+                            <span className="text1"> Nombre Usuario:</span> 
+                            <span className="text2"> {users.fullName}</span>
                         </ListGroup.Item>
                         <ListGroup.Item>
                             <span className="text1"> Email: </span> 

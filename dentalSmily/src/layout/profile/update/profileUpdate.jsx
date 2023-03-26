@@ -203,7 +203,7 @@ export const ProfileUpdate = () => {
                                                     className={"inputLogin"}
                                                     type={"text"}
                                                     name={"payment"}
-                                                    placeholder={""}
+                                                    placeholder={"Card, paypal, efective, whatever you want"}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
                                                     }

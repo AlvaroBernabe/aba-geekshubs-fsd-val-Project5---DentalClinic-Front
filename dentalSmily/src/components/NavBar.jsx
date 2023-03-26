@@ -37,7 +37,6 @@ function NavBar ()  {
                 <NavDropdown title="Users" id="navbarScrollingDropdown">
                     <NavDropdown.Item as={Link} to='/user/all'>Show all Users</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/user/all/detail'>Show Users Details</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to='/appointment/update'>Update Appointment</NavDropdown.Item>
                   </NavDropdown>
                 <Nav.Link as={Link} to='/' onClick={() => logout()}>Logout</Nav.Link>
               </> 
@@ -53,7 +52,8 @@ function NavBar ()  {
                   <NavDropdown title="Appointments" id="navbarScrollingDropdown">
                     <NavDropdown.Item as={Link} to='/appointment'>New Appointment</NavDropdown.Item>
                     <NavDropdown.Item as={Link} to='/appointment/myappoinment'>My Appoinments</NavDropdown.Item>
-                    <NavDropdown.Item as={Link} to='/appointment/update'>Update Appointment</NavDropdown.Item>
+                    <NavDropdown.Item eventKey="disabled" disabled as={Link} to='/appointment/update'>Update Appointment</NavDropdown.Item>
+                    
                   </NavDropdown>
                   <Nav.Link as={Link} to='/' onClick={() => logout()}>Logout</Nav.Link>
                   </>

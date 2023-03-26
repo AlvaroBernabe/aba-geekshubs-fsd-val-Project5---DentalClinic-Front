@@ -58,33 +58,33 @@ export const Appointment = () => {
     const checkError = (e) => { }
 
 const registerappointment = () => {
-
     nuevoAppointment(appointments, ReduxCredentials.credentials.token)
         .then( (resultado) => {
             setAppointments(resultado.data)
             setWelcome(`Cita creada correctamente para el día: ${appointments.date}`);
             setTimeout(()=>{
-                navigate('/profile');
+                navigate('/user/myprofile');
             },3500);
         })
         .catch(error => {
             setAppointments(error.message);
         });
 }
+
     return (
         <>
         <NavBar />
         <hr />
-        <div style={{ display: 'block', width: 700, padding: 30 }}>
+        <div>
             <div className="loginDesign">
                 {welcome !== "" ? (
             <div>{welcome}</div>
         ) : (
             <div>
                 <Container>
-                    <Row className="LoginForm">
+                    <Row className="LoginForm2">
                         <Col lg={6}>
-                            <Form className='formAppointment'>
+                            <Form className='formAppointments' style={{ width: "20rem" }}>
                                 <Form.Select name={"service_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
                                     <option>Choose your Treatment:</option>
                                     {treatments.map((treatment) => {

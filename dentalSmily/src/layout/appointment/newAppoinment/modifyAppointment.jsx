@@ -1,5 +1,5 @@
 import React, { useState, useEffect }  from 'react';
-import { Form } from 'react-bootstrap';
+import { Col, Container, Form, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import { useSelector } from 'react-redux';
 import { InputText } from '../../../components/InputText/InputText';
@@ -10,21 +10,41 @@ import { userData } from '../../userSlice';
 
 
 export const ModifyAppointment = () => {
-
     const ReduxCredentials = useSelector(userData);
     const ReduxAppointment = useSelector(appointmentData)
+    const [welcome, setWelcome] = useState("");
+    let params = ReduxAppointment.choosenAppointment.id 
 
-    // let params = ReduxAppointment.choosenAppointment.id 
+    const [treatments, setTreatments] = useState([
+      {
+        id: 1,
+        servicename: "Cleaning"
+      },
+      {
+        id: 2,
+        servicename: "Broken Teeth"
+      }
+    ]);
+    const [doctors, setDoctors] = useState([
+      {
+        id: 1,
+        specialtyname: "Orthodontics"
+      },
+      {
+        id: 2,
+        specialtyname: "Oral Surgery"
+      }
+    ]);
+
 
     const [appointments, setAppointments] = useState({
-        service_id: 2,
-        doctor_id: 2,
+        service_id: "",
+        doctor_id: "",
         user_id: ReduxCredentials.credentials.usuario.userId,
-        payment: false,
-        date: new Date(),
+        payment: "",
+        date: "",
       });
     
-
       const inputHandler = (e) => {
         setAppointments((prevState) => ({
           ...prevState,
@@ -32,76 +52,81 @@ export const ModifyAppointment = () => {
         }));
       };
 
-    //   console.log(appointments, "esto es appointment")
-      console.log(ReduxAppointment, "esto es reduxappointment")
-
-    const checkError = (e) => {
-
-    }
+    const checkError = (e) => { }
 
     const updateAppoinment = () => {
-        updateAppointment(params, appointments, ReduxCredentials.credentials.token)
-            .then(resultado => {
-                setAppointments(resultado.data)
-                setWelcome(`Cita modificada correctamente para el día: ${appointments.date}`);
-                // console.log(resultado)
-                // setTimeout(()=>{
-                //     navigate('/');
-                // },3500);
-            })
-            .catch(error => {
-                setAppointments(error.message);
-            });
-    }
-
+      updateAppointment(params, appointments, ReduxCredentials.credentials.token)
+      .then( (resultado) => {
+              setAppointments(resultado.data)
+              setWelcome(`Cita modificada correctamente para el día: ${appointments.date}`);
+              setTimeout(()=>{
+                  navigate('/user/myprofile');
+              },3500);
+          })
+          .catch(error => {
+              setAppointments(error.message);
+          });
+  }
+    console.log(appointments, "Esto vale appointment")
  
     return (
-        <>
-        <NavBar />
-        <hr />
-        <div style={{ display: 'block', 
-                    width: 700, 
-                    padding: 30 }}>
-        <h4>Modificar Appointment</h4>
-        <Form>
-           <Form.Group>
-              <Form.Label>service_id:</Form.Label>
-              <InputText className={"inputLogin"}
-              type={"number"} name={"service_id"} placeholder={"service_id..."} required={true}
-              changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-              </Form.Group>
-          {/* <Form.Group>
-              <Form.Label>user_id:</Form.Label>
-              <InputText className={"user_id"}
-                type={"number"} name={"user_id"} placeholder={"user_id..."} required={true}
-                changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-          </Form.Group> */}
-          <Form.Group>
-              <Form.Label>doctor_id:</Form.Label>
-              <InputText className={"doctor_id"}
-              type={"number"} name={"doctor_id"} placeholder={"doctor_id..."} required={true}
-              changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-              </Form.Group>
-          <Form.Group>
-              <Form.Label>payment:</Form.Label>
-              <InputText className={"payment"}
-                type={"boolean"} name={"payment"} placeholder={"payment"} required={true}
-                changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-          </Form.Group>
-          <Form.Group>
-              <Form.Label>date:</Form.Label>
-              <InputText className={"date"}
-              type={"datetime-local"} name={"date"} placeholder={"date..."} required={true}
-              changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
-              </Form.Group>
-              <br />
-              <div className='botonModificar'>
-                  <Button variant="primary" onClick={updateAppoinment}>
-                      Modificar Cita
-                  </Button>
-              </div>
-          </Form>
-        </div>
-        </>
-    );
+      <>
+      <NavBar />
+      <hr />
+      <div>
+          <div className="loginDesign">
+              {welcome !== "" ? (
+          <div>{welcome}</div>
+      ) : (
+          <div>
+              <Container>
+                  <Row className="LoginForm2">
+                      <Col lg={6}>
+                          <Form className='formAppointments' style={{ width: "20rem" }}>
+                              <Form.Select name={"service_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                                  <option>Choose your Treatment:</option>
+                                  {treatments.map((treatment) => {
+                                      return (
+                                          <option key={treatment.id} value={treatment.id}>{treatment.servicename}</option>
+                                      )
+                                  })}
+                              </Form.Select>
+                          <p></p>
+                              <Form.Select name={"doctor_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                                  <option>Choose Doctor Specialist:</option>
+                                  {doctors.map((doctor) => {
+                                      return (
+                                          <option key={doctor.id} value={doctor.id}>{doctor.specialtyname}</option>
+                                      )
+                                  })}
+                              </Form.Select>
+                              <p></p>
+                              <Form.Select name={"payment_id"} onChange={(e) => inputHandler(e)} aria-label="Default select example">
+                                  <option>Choose Default payment:</option>
+                                  <option value="1">Cash</option>
+                                  <option value="2">Card</option>
+                              </Form.Select>
+                              <p></p>
+                              <Form.Group>
+                                  <Form.Label>Date:</Form.Label>
+                                  <InputText className={"date"}
+                                                  type={"datetime-local"} name={"date"} placeholder={"date"} required={true}
+                                                  changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
+                              </Form.Group>
+                              <p></p>
+                              <div className='botonModificar'>
+                                  <Button variant="primary" onClick={updateAppoinment}>
+                                      Update Appointment
+                                  </Button>
+                              </div>
+                          </Form>
+                      </Col>
+                  </Row>
+              </Container>
+          </div>
+          )}
+          </div>
+      </div>
+      </>
+  );
 }

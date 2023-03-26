@@ -47,7 +47,7 @@ export const nuevoAppointment = async ( body, token) => {
         return await axios.post(`${root}/appointment/`,body, config)
 }
 
-export const updateAppointment = async ( params, body, token  ) => {
+export const updateAppointment = async ( id, body, token  ) => {
   console.log("----------------------------------------------",)
   console.log("esto vale body", body)
   console.log("Esto vale tokensss:",token)
@@ -55,7 +55,7 @@ export const updateAppointment = async ( params, body, token  ) => {
     headers: { 
       'Authorization': 'Bearer '+ token,  
     }};
-        return await axios.put(`${root}/appointment/update/${params}`,body, config )
+        return await axios.put(`${root}/appointment/update/${id}`,body, config )
 }
 
 export const getAppointmentasUser = async (token) => {

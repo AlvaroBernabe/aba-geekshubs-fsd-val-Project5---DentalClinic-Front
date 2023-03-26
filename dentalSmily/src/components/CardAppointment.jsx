@@ -10,6 +10,7 @@ function CardAppointment({ appo }) {
                     {dayjs(appo.date).format("MM/DD HH:mm")}
                 </Card.Title>
                 <ul>
+                    <li><span className="textColor">ID Appointment: </span>{appo.id}</li>
                     <li><span className="textColor">Type of Treatment: </span>{appo.Service.servicename}</li>
                     <li><span className="textColor">Duration Treatment: </span>{appo.Service.duration}</li>
                     <li><span className="textColor">Price: </span>{appo.Service.price}</li>
