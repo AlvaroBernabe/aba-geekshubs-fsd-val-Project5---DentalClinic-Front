@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row, Spinner } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import NavBar from "../../../components/NavBar";
 import { getAppointmentasDoctor } from "../../services/apiCalls";
@@ -10,55 +10,44 @@ export const GetMyAppointmentAsDoctor = () => {
     const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
-        if (ReduxCredentials.credentials.token) {
-            getAppointmentasDoctor(ReduxCredentials.credentials?.token)
-                .then((data) => {
-                    console.log(data);
-                    setAppointments(data);
+        if (appointments.length === 0) {
+            getAppointmentasDoctor(ReduxCredentials?.credentials?.token)
+                .then(result => {
+                    // console.log(result, "hola soy result");
+                    setAppointments(result.data.data);
                 })
                 .catch((error) => {
                     console.log(error);
                 });
         }
-    }, [ReduxCredentials.credentials.token]);
+    }, [appointments]);
+    console.log(appointments.data, "hola soy appointment")
 
     return (
         <>
             <NavBar />
             <hr />
-            <Container className="appoinment">
-                <Row>
-                    <Col>
-                        <div className="usersDesign">
-                            {appointments.length > 0 ? (
-                                <div>
-                                    {
-                                        +appointments.map(
-                                            console.log(appointments),
-                                            (appointment) => {
-                                                return (
-                                                    <div
-                                                        onClick={() =>
-                                                            selected(
-                                                                appointment
-                                                            )
-                                                        }
-                                                        key={appointment.id}
-                                                    >
-                                                        {appointment.id}
-                                                    </div>
-                                                );
-                                            }
-                                        )
-                                    }
+            <div>My appointments as doctor
+                { appointments.length > 0 ? 
+                    (<div className="cardsContainer">
+                        {
+                        appointments.map(
+                            appointment => {
+                            return (
+                                <div
+                                    key={appointment.id}>
+                                    <div> {appointment.date}</div>            
                                 </div>
-                            ) : (
-                                <div>ESTAN VINIENDO</div>
-                            )}
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
+                            )
+                            }
+                        )
+                        }  
+                        </div>)
+                        :
+                        ( <Spinner animation="border" variant="primary" />)
+                    
+                    }
+                    </div>
         </>
     );
 };

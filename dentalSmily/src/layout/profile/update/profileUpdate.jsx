@@ -1,54 +1,22 @@
 import React from "react";
 import { useState } from "react";
-//Slice
-
-//Redux
 import { useSelector, useDispatch } from "react-redux";
-
-//Bootstrap
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Form, InputGroup } from "react-bootstrap";
-
-//Decode JWT
-// import decode from "jwt-decode";
-import { decodeToken } from "react-jwt";
-import { useJwt } from "react-jwt";
-
-
-
-//Slice
-
-//React-router-dom
+import { Button, Form, } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
 import { login, userData, userout } from "../../userSlice";
 import { InputText } from "../../../components/InputText/InputText";
 import NavBar from "../../../components/NavBar";
 import { userUpdate } from "../../services/apiCalls";
 
 export const  ProfileUpdate = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
-        let jwt = resp.data.jwt;
-      let credentials = {
-        token: jwt,}
-  dispatch(userout({ credentials: {} }));
-  dispatch(login({ credentials: credentials }));
-  localStorage.removeItem("jwt");
-  localStorage.setItem("jwt", credentials.token);
-
   const credentialsRdx = useSelector(userData);
   let email = credentialsRdx.credentials.email;
-  let token = credentialsRdx.token;
 
-  
-  let localStorageToken = localStorage.getItem("token");
-  let { decodedToken } = useJwt(localStorageToken);
 
-  //Hooks
   const [user, setUser] = useState({
     dni_nif: "",
     fullName: "",
@@ -76,23 +44,6 @@ const body = {
     email: decodedToken.email,
   };
 
-  const updateUser = async (e) => {
-    setIsLoading(true);
-    e.preventDefault();
-    if (validateInputs(user)) {
-      userUpdater(body);
-      setUserError((prevState) => ({
-        ...prevState,
-        nocompletedError: "",
-      }));
-    } else {
-      setUserError((prevState) => ({
-        ...prevState,
-        nocompletedError:
-          "You need to add your details to change them",
-      }));
-    }
-  };
 
 //   const updateUser = async () => {
 //     await userUpdate(user, token).then((res) => {
