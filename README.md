@@ -3,19 +3,16 @@
 <Details>
   <summary>Contenido 📝</summary>
   <ol>
-    <li><a href="#objetivo-🎯">Objetivo</a></li>
-    <li><a href="#sobre-el-proyecto-🔎">Sobre el proyecto</a></li>
+    <li><a href="#objective-🎯">Objective</a></li>
+    <li><a href="#about-the-proyect-🔎">About the proyect</a></li>
     <li><a href="#deploy-🚀">Deploy</a></li>
     <li><a href="#stack">Stack</a></li>
-    <li><a href="#instalación-en-local">Instalación</a></li>
-    <li><a href="#vistas">Vistas</a></li>
-    <li><a href="#futuras-funcionalidades">Futuras funcionalidades</a></li>
-    <li><a href="#contribuciones">Contribuciones</a></li>
-    <li><a href="#licencia">Licencia</a></li>
-    <li><a href="#webgrafia">Webgrafia</a></li>
-    <li><a href="#desarrollo">Desarrollo</a></li>
-    <li><a href="#agradecimientos">Agradecimientos</a></li>
-    <li><a href="#contacto">Contacto</a></li>
+    <li><a href="#how-to-install">How to install</a></li>
+    <li><a href="#views">Views</a></li>
+    <li><a href="#future-features">Future Features</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#thanks">Thanks</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ol>
 </details>
 
@@ -59,56 +56,43 @@ I started out being somewhat afraid of React but it grows fond of it as you get 
 4. ``` $ npm run start ```
 5. ...
 
-## Vistas
-Landing
-<img src="./images/landing.png">  
+## Views
+Home
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/122753448/227871646-ba2a4a03-2ea6-4692-bc07-f3d1f28a6227.gif)
+
+Treatments:
+![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/122753448/227871745-e8ee2fee-7502-4f60-8c42-a9cc8eb5b75e.gif)
+
 Register
-<img src="./images/register.png">
-Login
-<img src="./images/login.png">
-Profile
-<img src="./images/profile.png">
-Routines
-<img src="./images/routines.png">
-Exercices
-<img src="./images/exercises.png">
+![ezgif com-gif-maker (2)](https://user-images.githubusercontent.com/122753448/227871821-e9fc8d4d-e2bf-4df6-a95b-e4c154775b6e.gif)
 
-## Futuras funcionalidades
-✅ Vista actualizar rutinas  
-⬜ Filtar por nombre de rutina  
-⬜ Validaciones de campos en crear rutina  
-⬜ ...  
+Login and Profile
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/122753448/227871898-c79f7645-461d-4f99-b81a-c5706b7f3e8f.gif)
 
-## Contribuciones
-Las sugerencias y aportaciones son siempre bienvenidas.  
+New Appointment
+![ezgif com-gif-maker (4)](https://user-images.githubusercontent.com/122753448/227872073-51534fad-4a7f-4100-9183-ca1840dcb44e.gif)
 
-Puedes hacerlo de dos maneras:
+Show All Users Admin and Details
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/122753448/227872179-116ddaad-dcfd-43a0-9c5c-70e0282e6d78.gif)
 
-1. Abriendo una issue
-2. Crea un fork del repositorio
-    - Crea una nueva rama  
-        ```
-        $ git checkout -b feature/nombreUsuario-mejora
-        ```
-    - Haz un commit con tus cambios 
-        ```
-        $ git commit -m 'feat: mejora X cosa'
-        ```
-    - Haz push a la rama 
-        ```
-        $ git push origin feature/nombreUsuario-mejora
-        ```
-    - Abre una solicitud de Pull Request
+Show All Appointment and my Appointment as Doctor
+![ezgif com-gif-maker (5)](https://user-images.githubusercontent.com/122753448/227872179-116ddaad-dcfd-43a0-9c5c-70e0282e6d78.gif)
 
-## Licencia
-Este proyecto se encuentra bajo licencia de "alvarito101093
+## Future Features:
+✅ Change Role with an Admin 
+⬜ More beautiful
+⬜ Validation in all input
+⬜ Cleaaner code
+⬜ Delete appointment by Id
+⬜ Show All Appointment as Doctor
+
+## License
+This proyect is have my license called "alvarito101093
 
 
+## Thanks:
 
-
-## Agradecimientos:
-
-Agradezco a mis compañeros y profesores:
+Thanks to all my colleagues who are charming and wonderful people and the teachers´s:
 
 -- *Dani*  
 <a href="https://github.com/datata" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=white" target="_blank"></a> 
@@ -123,8 +107,8 @@ Agradezco a mis compañeros y profesores:
 - ***Mara***  
 <a href="https://www.github.com/userGithub/" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=green" target="_blank"></a> 
 
-## Contacto
+## Contact
 
-<a href = "mailto:micorreoelectronico@gmail.com"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-<a href="https://www.linkedin.com/in/linkedinUser/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+<a href = "mailto:alvaro101093@gmail.com"><img src="https://img.shields.io/badge/Gmail-C6362C?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+<a href="https://www.linkedin.com/in/%C3%A1lvaro-bernab%C3%A9-alonso-6514a999/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
 </p>
