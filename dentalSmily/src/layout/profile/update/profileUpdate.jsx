@@ -132,6 +132,7 @@ export const ProfileUpdate = () => {
                                                     className={"inputLogin"}
                                                     type={"text"}
                                                     name={"dni_nif"}
+                                                    maxLength={70}
                                                     placeholder={"dni_nif..."}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
@@ -150,6 +151,7 @@ export const ProfileUpdate = () => {
                                                     className={"inputLogin"}
                                                     type={"text"}
                                                     name={"fullName"}
+                                                    maxLength={70}
                                                     placeholder={"fullName..."}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
@@ -167,6 +169,7 @@ export const ProfileUpdate = () => {
                                                     className={"inputLogin"}
                                                     type={"number"}
                                                     name={"phone"}
+                                                    maxLength={70}
                                                     placeholder={"phone..."}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
@@ -185,6 +188,7 @@ export const ProfileUpdate = () => {
                                                     className={"inputLogin"}
                                                     type={"password"}
                                                     name={"password"}
+                                                    maxLength={70}
                                                     placeholder={""}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)
@@ -203,6 +207,7 @@ export const ProfileUpdate = () => {
                                                     className={"inputLogin"}
                                                     type={"text"}
                                                     name={"payment"}
+                                                    maxLength={70}
                                                     placeholder={"Card, paypal, efective, whatever you want"}
                                                     changeFunction={(e) =>
                                                         inputHandler(e)

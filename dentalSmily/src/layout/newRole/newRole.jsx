@@ -60,7 +60,7 @@ export const NewRoles = () => {
            <Form.Group>
               <Form.Label>userid:</Form.Label>
               <InputText className={"inputLogin"}
-              type={"number"} name={"userid"} placeholder={"userid..."} required={true}
+              type={"number"} name={"userid"} placeholder={"userid..."} required={true} maxLength={70}
               changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
               </Form.Group>
           {/* <Form.Group>
@@ -78,7 +78,7 @@ export const NewRoles = () => {
           <Form.Group>
               <Form.Label>Role Id:</Form.Label>
               <InputText className={"role_id"}
-                type={"number"} name={"role_id"} placeholder={"role_id"} required={true}
+                type={"number"} name={"role_id"} placeholder={"role_id"} required={true} maxLength={70}
                 changeFunction={(e) => inputHandler(e)} blurFunction={(e) => checkError(e)} />
           </Form.Group>
               <br />
